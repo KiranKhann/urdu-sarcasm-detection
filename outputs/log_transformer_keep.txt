@@ -1,0 +1,49 @@
+cuda: True | model: xlm-roberta-base | emoji: keep
+Loading weights:   0%|          | 0/197 [00:00<?, ?it/s]Loading weights:  19%|█▉        | 37/197 [00:00<00:00, 348.67it/s]Loading weights:  38%|███▊      | 75/197 [00:00<00:00, 365.95it/s]Loading weights: 100%|██████████| 197/197 [00:00<00:00, 777.42it/s]
+[transformers] [1mXLMRobertaForSequenceClassification LOAD REPORT[0m from: xlm-roberta-base
+Key                         | Status     | 
+----------------------------+------------+-
+roberta.pooler.dense.bias   | UNEXPECTED | 
+roberta.pooler.dense.weight | UNEXPECTED | 
+lm_head.bias                | UNEXPECTED | 
+lm_head.layer_norm.bias     | UNEXPECTED | 
+lm_head.layer_norm.weight   | UNEXPECTED | 
+lm_head.dense.bias          | UNEXPECTED | 
+lm_head.dense.weight        | UNEXPECTED | 
+classifier.out_proj.bias    | MISSING    | 
+classifier.dense.bias       | MISSING    | 
+classifier.out_proj.weight  | MISSING    | 
+classifier.dense.weight     | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+trainable parameters: 86.0M / 278.0M
+C:\Users\kiran\NLP Sarcasm Detection\src\transformer.py:91: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:219.)
+  y_tr = torch.as_tensor(np.asarray(y_train), dtype=torch.long)
+  epoch 1 step 0/637  loss 0.6843
+  epoch 1 step 100/637  loss 0.6770
+  epoch 1 step 200/637  loss 0.6109
+  epoch 1 step 300/637  loss 0.5809
+  epoch 1 step 400/637  loss 0.5418
+  epoch 1 step 500/637  loss 0.5254
+  epoch 1 step 600/637  loss 0.5119
+[xlm-roberta-base] epoch 1  loss 0.5058  val macro-F1 0.8154  acc 0.8234  (108s)
+  epoch 2 step 0/637  loss 0.6414
+  epoch 2 step 100/637  loss 0.4050
+  epoch 2 step 200/637  loss 0.4024
+  epoch 2 step 300/637  loss 0.3957
+  epoch 2 step 400/637  loss 0.3952
+  epoch 2 step 500/637  loss 0.3888
+  epoch 2 step 600/637  loss 0.3930
+[xlm-roberta-base] epoch 2  loss 0.3926  val macro-F1 0.8126  acc 0.8166  (107s)
+  epoch 3 step 0/637  loss 0.3546
+  epoch 3 step 100/637  loss 0.3575
+  epoch 3 step 200/637  loss 0.3483
+  epoch 3 step 300/637  loss 0.3472
+  epoch 3 step 400/637  loss 0.3398
+  epoch 3 step 500/637  loss 0.3392
+  epoch 3 step 600/637  loss 0.3325
+[xlm-roberta-base] epoch 3  loss 0.3311  val macro-F1 0.8171  acc 0.8211  (107s)
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:02<00:00,  2.06s/it]Writing model shards: 100%|██████████| 1/1 [00:02<00:00,  2.06s/it]
+==> xlm-roberta-base (emoji keep): test macro-F1 0.8107 acc 0.8138 (thr 0.48) in 363s

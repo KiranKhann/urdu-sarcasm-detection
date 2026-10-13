@@ -1,0 +1,20 @@
+pandas>=2.0
+numpy>=1.26
+scikit-learn>=1.4
+scipy
+matplotlib
+seaborn
+emoji>=2.10
+joblib
+tqdm
+torch>=2.2
+transformers>=4.40
+sentencepiece
+tokenizers
+# notebook / report tooling
+jupyter
+nbformat
+nbconvert
+reportlab
+arabic-reshaper
+python-bidi

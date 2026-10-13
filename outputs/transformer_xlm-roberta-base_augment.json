@@ -1,0 +1,48 @@
+{
+ "test": {
+  "model": "xlm-roberta-base (emoji augment)",
+  "accuracy": 0.8110704483074108,
+  "precision_0": 0.8602761982128351,
+  "recall_0": 0.8146153846153846,
+  "f1_0": 0.836823389964441,
+  "precision_1": 0.7476439790575916,
+  "recall_1": 0.8058690744920993,
+  "f1_1": 0.7756653992395437,
+  "macro_f1": 0.8062443946019924,
+  "support_0": 1300,
+  "support_1": 886,
+  "tn": 1059,
+  "fp": 241,
+  "fn": 172,
+  "tp": 714,
+  "threshold": 0.49999999999999983,
+  "val_macro_f1": 0.8210739485021826,
+  "epochs": 3,
+  "emoji_mode": "augment",
+  "model_name": "xlm-roberta-base"
+ },
+ "history": [
+  {
+   "epoch": 1,
+   "train_loss": 0.5188300876628655,
+   "val_macro_f1": 0.8210739485021826,
+   "val_acc": 0.8266239707227814,
+   "time_s": 109
+  },
+  {
+   "epoch": 2,
+   "train_loss": 0.40422776145016553,
+   "val_macro_f1": 0.8203716969963399,
+   "val_acc": 0.8247941445562672,
+   "time_s": 107
+  },
+  {
+   "epoch": 3,
+   "train_loss": 0.34225940049314274,
+   "val_macro_f1": 0.8148799220135687,
+   "val_acc": 0.8183897529734675,
+   "time_s": 108
+  }
+ ],
+ "elapsed_s": 372
+}

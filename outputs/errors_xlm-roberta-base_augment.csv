@@ -1,0 +1,43 @@
+urdu_text,is_sarcastic,pred,p_sarcastic,conf,error_type,emoji_meaning,phenomena
+@x9FwIZZMHUO8p37 پائن اچھے کام کو سراہنا چاہئے اور بھی بہت سی باتیں ہیں تنقید کرنے کے لئے,0,1,0.9717301,0.4717301,false positive (literal read as sarcasm),(no emoji),"code-mixing (Latin), spelling variant"
+@fawadchaudhry ایک دوسرے پر تنقید بند کرو اپنا بوریاں بستر بندو اور گھر جانے کی تیاری کرو شاباش,0,1,0.97123283,0.47123283,false positive (literal read as sarcasm),(no emoji),"ironic-praise marker, code-mixing (Latin)"
+شکریہ جویریہ 😊😊,1,0,0.029471157,0.47052884,false negative (missed sarcasm),"😊 = smiling face with smiling eyes / مسکراہٹ [LOVE, pol +, end]; 😊 = smiling face with smiling eyes / مسکراہٹ [LOVE, pol +, end]","emoji, very short / context-dependent"
+ٹھیک ہو جاو ناں منی اللہ پاک صحت زندگی دے آپ کو❤,1,0,0.03062012,0.46937987,false negative (missed sarcasm),"❤ = red heart / دل / محبت [LOVE, pol +, end]","emoji, negation, Punjabi"
+@Shoaib_Jatt تنقید طریقے کی کرتا تو یوں کومنٹس میں گالیاں نہیں کھا رہا ہوتا,0,1,0.96907824,0.46907824,false positive (literal read as sarcasm),(no emoji),"negation, code-mixing (Latin)"
+@LabourOverseas @AneelaNoreen2 تو میرے بھائی آپکا مطلب یہ ہے کہ باہر سے آنے والے ہر آدمی کو  پی ٹی اے کچھ نہ پوچھے نہ کوئ روک ٹوک پابندی ہو موبائل چلانے کی تو مجھے بتائیں کونسا ملک اپنےاوورسیز شہریوں کو یہ سہولت دے رہا ہے؟ تنقید برائے تنقید کا کوئ فایدہ ن,0,1,0.96838176,0.46838176,false positive (literal read as sarcasm),(no emoji),"negation, idiom/phrase, code-mixing (Latin), Punjabi, spelling variant, rhetorical question"
+@AbidSherAli شکل رب نے بنائی انسان نے نہیں پلیز شکل وصورت پر مت تنقید کریں۔,0,1,0.967822,0.46782202,false positive (literal read as sarcasm),(no emoji),"negation, code-mixing (Latin)"
+@pak14_8 آپ لگے رہیں  ہر کسی کی اپنی رائے ویسے میں بھی مانیکا خاندان پر تنقید کرتی ہوں 😅😅,0,1,0.967539,0.467539,false positive (literal read as sarcasm),"😅 = grinning face with sweat / شرمندہ ہنسی [LAUGH, pol 0, irony-cue, end]; 😅 = grinning face with sweat / شرمندہ ہنسی [LAUGH, pol 0, irony-cue, end]","emoji, irony-cue emoji, laughter-only emoji, code-mixing (Latin), political context"
+@ImranRiazKhan جن کو چور ڈاکو کہہ کے ان کے ساٹھ بیٹھنے سے انکار کر رہا ہے کل بھی جب نیازی اپوزیشن میں تھا تو ان کے ساتھ بیٹھتا تھا اور آنے والے کل بھی انھی میں سے کچھ لوگوں کے ساتھ اپوزیشن میں بیٹھ کے حکومت کے خلاف صف آرا ہو گا۔لیکن تم غیرت ضرور کرنا اس و,0,1,0.96687776,0.46687776,false positive (literal read as sarcasm),(no emoji),"code-mixing (Latin), political context"
+"""عوام عمران خان کی تمام سازشیں جان چکی ہے""
+
+مریم اورنگزیب کی عمران خان پر تنقید
+
+@Marriyum_A 
+#GeoNews https://t.co/dS7hNG6zEf",0,1,0.9661723,0.46617228,false positive (literal read as sarcasm),(no emoji),"code-mixing (Latin), quoted speech, political context"
+ویسے بلاول نے بہت خوبصورتی سے تنقید کی ہے .. بزدل بھاگتا ہے بلیک میل کرتا ہے .. نیازی میں اخلاقی جرءت بھی نہیں کہ اتنی بری حالت اور اپنے جھوٹوں پر استعفی دے کر چلا جائے https://t.co/bYV9Emn00m,0,1,0.9655885,0.4655885,false positive (literal read as sarcasm),(no emoji),"negation, code-mixing (Latin), Punjabi, political context"
+اتنی اردو اللہ معاف کرے 😁,1,0,0.03453845,0.46546155,false negative (missed sarcasm),"😁 = beaming face with smiling eyes / دانت نکال کر ہنسی [LAUGH, pol +, irony-cue, end]","emoji, irony-cue emoji, laughter-only emoji, idiom/phrase"
+"حکومت کی تعریف ARY پر دیکھیں 
+
+حکومت پر تنقید GEO پر دیکھیں 
+
+حکومت کی ترقی PTV پر دیکھیں ۔۔
+
+اور حقیقی ترقی دیکھنی ہو تو TV بند کریں اور گھر سے باہر نکل کر دیکھیں دودھ کا دودھ اور پانی کا پانی ہو جائے گا
+#ووٹ_چور_مال_خور_حکومت_چھوڑ
+@Atifrauf79 @CMShehbaz 
+@HammasHanif",0,1,0.9653567,0.4653567,false positive (literal read as sarcasm),(no emoji),"code-mixing (Latin), spelling variant, political context"
+شکریہ ادا اللّٰہ سائیں خوش رکھے تہاکوں سدا۔⁦⁩⁦⁩⁦⁩⁦⁩⁦⁩⁦⁩,1,0,0.034653656,0.46534634,false negative (missed sarcasm),(no emoji),spelling variant
+"@Asadahm20429452 @SShabbarZaidi اپوزیشن کو اگر کچھ پاکستان کےبلئے سوچنا ہوتا تو چالیس سال کی حکمرانی میں ڈبویا نہ ہوتا۔
+مشرف کے دور میں بھی جو پایا تھا، وہ بھی نواز شریف اور زرداری حکومتوں نے کھویا۔
+یہ عمران خان کی حکومت ہے  جس میں ایکسپورٹ بھی بڑھ رہی ہے",0,1,0.964605,0.46460497,false positive (literal read as sarcasm),(no emoji),"negation, code-mixing (Latin), political context"
+وادہ وکہ 😂,1,0,0.035555907,0.4644441,false negative (missed sarcasm),"😂 = face with tears of joy / ہنسی کے آنسو [LAUGH, pol +, irony-cue, end]","emoji, irony-cue emoji, laughter-only emoji, very short / context-dependent"
+"مولانا طارق جمیل انسانی حقوق کے علمبردار اورنگزیب فارقی ؒ کے گلے لگ کر ""امت"" کے قتال پر روتے ہوئے
+#Sarcasm http://t.co/nRm6rcughy",0,1,0.9644336,0.4644336,false positive (literal read as sarcasm),(no emoji),"code-mixing (Latin), quoted speech"
+@ProPakistani115 @78ds2 @ather_hameed @Marwat96060979 @ijazali7 بھیا آپ ماشاءاللہ سمجھدار ہیں، تنقید ہمیشہ حکمران پر ہوتی ہے، جس کے پاس طاقت اور اختیار ہوتا ہے۔ جس کرپٹ لوگوں کی بات آپ کی رہے ہیں، ان کے خلاف مقدمات تو پہلے ہی عدالتوں میں ہیں اور مقدمہ کے,0,1,0.96424586,0.46424586,false positive (literal read as sarcasm),(no emoji),"ironic-praise marker, code-mixing (Latin)"
+"@MZeeshanSid @Shoaib_Jatt بھائی پرفارمنس پر تنقید صحافی کا کام ہے جواب میدان میں دیا جاتا ہے,  اس نے ان اؤٹ کی بات ہی نہیں کی",0,1,0.96412414,0.46412414,false positive (literal read as sarcasm),(no emoji),"negation, code-mixing (Latin)"
+چہرہ صاف دل میں داغ منہ پہ آپ پیچھے سانپ 🥀🔥,1,0,0.035997905,0.4640021,false negative (missed sarcasm),"🥀 = wilted flower / مرجھایا پھول / اداسی [SAD, pol -, end]; 🔥 = fire / آگ / زبردست [PRAISE, pol +, end]","emoji, mixed-polarity emojis, spelling variant"
+میں فقط اتنا سچا ہوں🖤 کہ میں مانتا ہوں میں برا ہوں🚬🌚,1,0,0.036019545,0.46398047,false negative (missed sarcasm),"🖤 = black heart / کالا دل [LOVE, pol 0, middle]; 🚬 = cigarette / cigarette [OTHER, pol 0, end]; 🌚 = new moon face / کالا چاند / شرارت [SMIRK, pol 0, irony-cue, end]","emoji, irony-cue emoji"
+نون لیگ کے دلال اپوزیشن لیڈر جناب کنجر ساتھی کی حکومت پر تنقید۔ یہ حرام کا تخم صحافی ہے؟ https://t.co/jrBQ4xob5G,0,1,0.9628835,0.46288347,false positive (literal read as sarcasm),(no emoji),"ironic-praise marker, code-mixing (Latin), rhetorical question, political context"
+بلاول نے ن لیگ سے اگلے پچھلے سارے حساب برابر کر دیا اب ن لیگ بلاول کے وہ ٹٹے اٹھا رہی ہے جو اسکے پاس ہیں ہی نہیں 😆😆😆😆😆,0,1,0.962665,0.46266502,false positive (literal read as sarcasm),"😆 = grinning squinting face / زور کی ہنسی [LAUGH, pol +, irony-cue, end]; 😆 = grinning squinting face / زور کی ہنسی [LAUGH, pol +, irony-cue, end]; 😆 = grinning squinting face / زور کی ہنسی [LAUGH, pol +, irony-cue, end]; 😆 = grinning squinting face / زور کی ہنسی [LAUGH, pol +, irony-cue, end]; 😆 = grinning squinting face / زور کی ہنسی [LAUGH, pol +, irony-cue, end]","emoji, irony-cue emoji, laughter-only emoji, negation, political context"
+سہولت کار 😂,1,0,0.0379968,0.4620032,false negative (missed sarcasm),"😂 = face with tears of joy / ہنسی کے آنسو [LAUGH, pol +, irony-cue, end]","emoji, irony-cue emoji, laughter-only emoji, very short / context-dependent"
+جنرل کیانی کے ماتحت  پیزے  بناتے رہے جبکہ بقول ہارون رشید بوجہ کم تنخواہ وہ آدھی روٹی پر گزارہ کرتے رہے۔ بڑے بدلحاظ ماتحت تھے,0,1,0.96159935,0.46159935,false positive (literal read as sarcasm),(no emoji),spelling variant

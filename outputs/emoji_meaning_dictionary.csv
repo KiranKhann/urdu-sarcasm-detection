@@ -1,0 +1,539 @@
+emoji,meaning_en,meaning_ur,polarity,category,irony_cue,in_curated_lexicon,count_all_posts,train_posts,P_sarcastic_given_emoji_train
+😂,face with tears of joy,ہنسی کے آنسو,1,LAUGH,True,True,7710,2463,0.448
+😜,winking face with tongue,شرارتی چہرہ,0,TEASE,True,True,1083,488,0.535
+❤,red heart,دل / محبت,1,LOVE,False,True,1038,496,0.085
+🤣,rolling on the floor laughing,لوٹ پوٹ ہنسی,1,LAUGH,True,True,1013,345,0.487
+😁,beaming face with smiling eyes,دانت نکال کر ہنسی,1,LAUGH,True,True,898,395,0.577
+🙏,folded hands,دعا / شکریہ,1,PRAYER,False,True,576,268,0.299
+💔,broken heart,ٹوٹا دل,-1,SAD,False,True,517,302,0.053
+🌹,rose,گلاب,1,FLOWER,False,True,486,172,0.052
+😍,smiling face with heart-eyes,پیار بھری نظر,1,LOVE,False,True,456,223,0.09
+😝,squinting face with tongue,زبان نکالنا,0,TEASE,True,True,441,173,0.503
+😅,grinning face with sweat,شرمندہ ہنسی,0,LAUGH,True,True,405,190,0.595
+🔥,fire,آگ / زبردست,1,PRAISE,False,True,375,191,0.11
+😆,grinning squinting face,زور کی ہنسی,1,LAUGH,True,True,347,151,0.55
+😀,grinning face,ہنسی,1,LAUGH,True,True,345,168,0.5
+😊,smiling face with smiling eyes,مسکراہٹ,1,LOVE,False,True,340,183,0.279
+🙈,see-no-evil monkey,شرم / آنکھیں بند,0,SHY,True,True,317,139,0.273
+😉,winking face,آنکھ مارنا,0,TEASE,True,True,282,158,0.589
+✌,victory hand,فتح,1,PRAISE,False,True,280,160,0.319
+👍,thumbs up,پسند / ٹھیک,1,PRAISE,False,True,264,133,0.233
+😏,smirking face,طنزیہ مسکراہٹ,0,SMIRK,True,True,255,132,0.394
+👇,backhand index pointing down,نیچے اشارہ,0,GESTURE,False,True,253,144,0.382
+😭,loudly crying face,زور سے رونا,-1,SAD,False,True,248,103,0.291
+💯,hundred points,سو فیصد / بالکل,1,PRAISE,False,True,235,134,0.134
+💕,two hearts,محبت,1,LOVE,False,True,224,106,0.075
+😄,grinning face with smiling eyes,کھلی ہنسی,1,LAUGH,True,True,221,112,0.545
+💞,revolving hearts,محبت,1,LOVE,False,True,219,74,0.041
+👏,clapping hands,تالی / شاباش,1,PRAISE,True,True,207,68,0.382
+😋,face savoring food,مزے لینا,1,TEASE,True,True,206,112,0.446
+🌷,tulip,پھول,1,FLOWER,False,True,204,86,0.035
+😡,enraged face,غصہ,-1,ANGER,False,True,203,83,0.386
+♥,heart suit,دل / محبت,1,LOVE,False,True,200,116,0.052
+😎,smiling face with sunglasses,کول / بے پروا,1,TEASE,True,True,191,112,0.482
+🍁,maple leaf,خزاں کا پتا,0,SAD,False,True,189,45,0.067
+👌,OK hand,ٹھیک / بہترین,1,PRAISE,False,True,188,98,0.214
+🤔,thinking face,سوچنا / شک,0,THINK,True,True,184,93,0.591
+🥀,wilted flower,مرجھایا پھول / اداسی,-1,SAD,False,True,176,101,0.079
+😃,grinning face with big eyes,کھلی ہنسی,1,LAUGH,True,True,173,83,0.506
+🙊,speak-no-evil monkey,چپ / منہ بند,0,SHY,True,True,172,93,0.247
+😛,face with tongue,زبان نکالنا,0,TEASE,True,True,166,81,0.469
+🤭,face with hand over mouth,دبی ہنسی,0,LAUGH,True,True,165,94,0.34
+😐,neutral face,بے تاثر چہرہ,0,SMIRK,True,True,163,88,0.273
+🙄,face with rolling eyes,آنکھیں گھمانا / بیزاری,-1,SMIRK,True,True,163,89,0.427
+😢,crying face,رونا,-1,SAD,False,True,162,73,0.247
+💪,flexed biceps,طاقت,1,PRAISE,False,True,154,61,0.508
+🍂,fallen leaf,گرا پتا / خزاں,-1,SAD,False,True,150,80,0.15
+👈,backhand index pointing left,اشارہ,0,GESTURE,False,True,142,62,0.339
+😔,pensive face,اداس / فکرمند,-1,SAD,False,True,135,79,0.165
+😒,unamused face,ناخوش / بیزار,-1,SMIRK,True,True,134,70,0.314
+❣,heart exclamation,دل / محبت,1,LOVE,False,True,131,58,0.0
+😇,smiling face with halo,معصوم بننا,0,SMIRK,True,True,130,66,0.258
+😌,relieved face,اطمینان,1,LOVE,False,True,124,72,0.208
+🇵🇰,flag Pakistan,پاکستان کا جھنڈا,1,OTHER,False,True,119,59,0.305
+🌸,cherry blossom,پھول,1,FLOWER,False,True,111,49,0.061
+😷,face with medical mask,ماسک والا چہرہ,0,SMIRK,True,True,108,46,0.587
+🤦,person facepalming,ہاتھ ماتھے پر / افسوس,-1,SMIRK,True,True,106,53,0.434
+💖,sparkling heart,چمکتا دل,1,LOVE,False,True,104,49,0.143
+☺,smiling face,مسکراہٹ,1,LOVE,False,True,103,69,0.406
+😘,face blowing a kiss,بوسہ,1,LOVE,False,True,102,52,0.192
+👊,oncoming fist,مکا,0,GESTURE,False,True,102,40,0.5
+🌺,hibiscus,پھول,1,FLOWER,False,True,100,38,0.0
+💚,green heart,دل,1,LOVE,False,True,93,40,0.15
+😳,flushed face,شرمندہ / حیران,0,SHY,False,True,93,44,0.364
+💐,bouquet,گلدستہ,1,FLOWER,False,True,91,45,0.022
+✨,sparkles,چمک,1,PRAISE,False,True,90,48,0.104
+😬,grimacing face,دانت پیسنا,-1,SMIRK,True,True,89,34,0.265
+🌴,palm tree,کھجور کا درخت,1,FLOWER,False,True,88,19,0.0
+😕,confused face,الجھن,-1,THINK,False,True,83,47,0.255
+🙂,slightly smiling face,ہلکی (اکثر طنزیہ) مسکراہٹ,0,SMIRK,True,True,78,44,0.364
+🏃,person running,بھاگنا,0,GESTURE,True,True,78,23,0.348
+😑,expressionless face,بے تاثر,-1,SMIRK,True,True,78,37,0.351
+🌻,sunflower,سورج مکھی,1,FLOWER,False,True,71,24,0.042
+😥,sad but relieved face,اداس,-1,SAD,False,True,69,36,0.25
+🤪,zany face,پاگل پن,0,TEASE,True,True,67,41,0.61
+🍃,leaf fluttering in wind,پتا,1,FLOWER,False,True,67,28,0.071
+🙌,raising hands,ہاتھ اٹھا کر خوشی,1,PRAISE,False,True,63,22,0.318
+🖤,black heart,کالا دل,0,LOVE,False,True,59,40,0.1
+🤷,person shrugging,کندھے اچکانا,0,SMIRK,True,True,57,31,0.258
+🔄,counterclockwise arrows button,ری ٹویٹ / دہرانا,0,OTHER,False,True,56,36,0.0
+🐕,dog,کتا,-1,INSULT,True,True,55,26,0.654
+💙,blue heart,دل,1,LOVE,False,True,54,17,0.059
+🌚,new moon face,کالا چاند / شرارت,0,SMIRK,True,True,52,38,0.211
+✅,check mark button,درست / ٹک,1,PRAISE,False,True,51,19,0.0
+💝,heart with ribbon,تحفہ دل,1,LOVE,False,True,51,20,0.1
+☹,frowning face,اداس چہرہ,-1,SAD,False,True,51,29,0.138
+😠,angry face,غصہ,-1,ANGER,False,True,50,22,0.364
+💫,dizzy,چکر / ستارے,1,PRAISE,False,True,50,31,0.065
+💗,growing heart,دل,1,LOVE,False,True,50,25,0.04
+🚶,person walking,چلنا,0,GESTURE,False,True,49,10,0.2
+💓,beating heart,دھڑکتا دل,1,LOVE,False,True,49,23,0.0
+🌿,herb,سبز پتے,1,FLOWER,False,True,48,17,0.059
+😱,face screaming in fear,خوف / حیرت,-1,SHY,True,True,47,20,0.45
+🤗,smiling face with open hands,گلے لگانا,1,LOVE,False,True,46,29,0.241
+🐅,tiger,شیر / ٹائیگر,0,INSULT,True,True,45,16,0.5
+🎂,birthday cake,سالگرہ کیک,1,OTHER,False,True,40,9,0.333
+🌼,blossom,پھول,1,FLOWER,False,True,39,16,0.062
+👎,thumbs down,ناپسند,-1,ANGER,False,True,39,15,0.333
+🖐,hand with fingers splayed,ہاتھ,0,GESTURE,False,True,38,16,0.5
+✊,raised fist,مکا / جدوجہد,0,GESTURE,False,True,37,19,0.421
+😹,cat with tears of joy,ہنستی بلی,1,LAUGH,True,True,36,18,0.278
+😞,disappointed face,مایوس,-1,SAD,False,True,36,22,0.182
+😪,sleepy face,نیند / تھکن,-1,SAD,False,True,36,9,0.222
+✋,raised hand,ہاتھ,0,GESTURE,False,True,35,22,0.455
+🙉,hear-no-evil monkey,کان بند,0,SHY,True,True,34,21,0.476
+🤓,nerd face,پڑھاکو / عینک والا,0,TEASE,True,True,33,17,0.765
+🙆,person gesturing OK,ٹھیک ہے,1,GESTURE,False,True,33,14,0.214
+🤲,palms up together,دعا,1,PRAYER,False,True,32,19,0.211
+✍,writing hand,لکھنا,0,GESTURE,False,True,31,23,0.13
+🙃,upside-down face,الٹا چہرہ / طنز,0,SMIRK,True,True,31,21,0.429
+🍀,four leaf clover,خوش قسمتی,1,FLOWER,False,True,30,13,0.0
+👉,backhand index pointing right,اشارہ,0,GESTURE,False,True,30,22,0.318
+☝,index pointing up,اوپر اشارہ,0,GESTURE,False,True,30,10,0.3
+🔅,dim button,علامت,0,OTHER,False,True,30,2,0.0
+😣,persevering face,پریشان,-1,SAD,False,True,30,15,0.267
+💃,woman dancing,ناچنا,1,PRAISE,True,True,30,11,0.273
+🕊,dove,امن کا کبوتر,1,PRAYER,False,True,29,6,0.167
+👺,goblin,بھوت / بدروح,-1,INSULT,True,True,28,5,0.2
+🥰,smiling face with hearts,پیار,1,LOVE,False,True,27,18,0.111
+🍕,pizza,پیزا,0,OTHER,True,True,27,4,0.5
+😟,worried face,فکرمند,-1,SAD,False,True,26,16,0.312
+🤐,zipper-mouth face,منہ بند,0,SMIRK,True,True,26,16,0.375
+😈,smiling face with horns,شیطانی مسکراہٹ,-1,ANGER,True,True,25,16,0.25
+😲,astonished face,حیران,0,SHY,False,True,24,12,0.333
+👻,ghost,بھوت,0,INSULT,True,True,24,17,0.235
+💘,heart with arrow,عشق,1,LOVE,False,True,24,9,0.0
+🤨,face with raised eyebrow,شک بھری نظر,0,THINK,True,True,23,13,0.385
+❄,snowflake,برف,0,FLOWER,False,True,23,2,0.0
+😓,downcast face with sweat,اداس / شرمندہ,-1,SAD,False,True,22,13,0.308
+💥,collision,دھماکا,0,OTHER,False,True,22,12,0.25
+📚,books,کتابیں,0,OTHER,False,True,21,15,0.067
+💜,purple heart,دل,1,LOVE,False,True,21,8,0.0
+🌾,sheaf of rice,فصل,1,FLOWER,False,True,20,9,0.111
+▪,black small square,نقطہ,0,OTHER,False,True,20,4,0.25
+🤫,shushing face,چپ رہو,0,SMIRK,True,True,20,10,0.6
+😩,weary face,تھکا ہارا,-1,SAD,False,True,19,7,0.0
+🔁,repeat button,دہرانا,0,OTHER,False,True,19,13,0.0
+🥺,pleading face,التجا,-1,SAD,False,True,19,16,0.125
+☕,hot beverage,چائے,1,OTHER,False,True,18,7,0.0
+😶,face without mouth,خاموش,0,SMIRK,True,True,18,12,0.333
+😯,hushed face,حیران,0,SHY,False,True,18,8,0.375
+🇱🇾,Libya,Libya,0,OTHER,False,False,18,4,0.25
+🐒,monkey,بندر,-1,INSULT,True,True,18,7,0.714
+🙋,person raising hand,ہاتھ اٹھانا,0,GESTURE,False,True,17,11,0.182
+🅰,A button (blood type),A button (blood type),0,OTHER,False,False,16,5,0.6
+💌,love letter,محبت نامہ,1,LOVE,False,True,16,6,0.0
+🎉,party popper,جشن / مبارک,1,PRAISE,False,True,15,6,0.167
+😚,kissing face with closed eyes,بوسہ,1,LOVE,False,True,15,8,0.625
+😰,anxious face with sweat,پریشان,-1,SAD,False,True,15,1,0.0
+😤,face with steam from nose,ناراض,-1,ANGER,False,True,15,6,0.5
+🕋,kaaba,کعبہ,1,PRAYER,False,True,14,8,0.125
+🙁,slightly frowning face,اداس,-1,SAD,False,True,14,8,0.25
+🍼,baby bottle,دودھ کی بوتل / بچہ,0,INSULT,True,True,14,3,0.0
+📯,postal horn,postal horn,0,OTHER,False,False,14,4,0.5
+⚡,high voltage,high voltage,0,OTHER,False,False,13,5,0.0
+🌝,full moon face,full moon face,0,OTHER,False,False,13,9,0.222
+👀,eyes,eyes,0,OTHER,False,False,13,8,0.375
+💎,gem stone,gem stone,0,OTHER,False,False,13,4,0.0
+📢,loudspeaker,اعلان,0,OTHER,False,True,12,7,0.143
+👆,backhand index pointing up,اوپر اشارہ,0,GESTURE,False,True,12,9,0.0
+🦋,butterfly,butterfly,0,OTHER,False,False,12,9,0.0
+🌵,cactus,cactus,0,OTHER,False,False,12,3,0.0
+🥴,woozy face,woozy face,0,OTHER,False,False,12,5,0.6
+🐔,chicken,chicken,0,OTHER,False,False,12,2,0.5
+💁,person tipping hand,person tipping hand,0,OTHER,False,False,11,8,0.5
+😴,sleeping face,sleeping face,0,OTHER,False,False,11,8,0.5
+😧,anguished face,anguished face,0,OTHER,False,False,11,8,0.125
+🙅,person gesturing NO,person gesturing NO,0,OTHER,False,False,11,7,0.571
+☘,shamrock,shamrock,0,OTHER,False,False,11,3,0.0
+🌱,seedling,seedling,0,OTHER,False,False,10,7,0.143
+🐍,snake,سانپ,-1,INSULT,True,True,10,7,0.429
+💦,sweat droplets,پانی کے قطرے,0,OTHER,False,True,10,3,0.0
+🐓,rooster,rooster,0,OTHER,False,False,10,3,0.333
+🚬,cigarette,cigarette,0,OTHER,False,False,9,6,0.167
+🥳,partying face,جشن,1,PRAISE,False,True,9,4,0.5
+👅,tongue,زبان,0,TEASE,True,True,9,4,0.75
+🐶,dog face,کتا,-1,INSULT,True,True,9,5,0.6
+🖕,middle finger,middle finger,0,OTHER,False,False,9,5,0.4
+🎭,performing arts,performing arts,0,OTHER,False,False,9,7,0.0
+🇮🇳,India,India,0,OTHER,False,False,9,6,0.667
+🕌,mosque,مسجد,1,PRAYER,False,True,9,2,0.0
+📝,memo,memo,0,OTHER,False,False,9,1,0.0
+😖,confounded face,confounded face,0,OTHER,False,False,8,5,0.4
+🚀,rocket,rocket,0,OTHER,False,False,8,3,0.0
+🐷,pig face,pig face,0,OTHER,False,False,8,2,0.5
+😮,face with open mouth,حیران,0,SHY,False,True,8,3,0.0
+✔,check mark,check mark,0,OTHER,False,False,8,5,0.0
+🤕,face with head-bandage,face with head-bandage,0,OTHER,False,False,8,5,0.4
+🤩,star-struck,star-struck,0,OTHER,False,False,8,6,0.333
+🌳,deciduous tree,deciduous tree,0,OTHER,False,False,8,5,0.0
+🎶,musical notes,musical notes,0,OTHER,False,False,8,2,0.0
+😻,smiling cat with heart-eyes,پیار بھری بلی,1,LOVE,False,True,8,3,0.0
+🕺,man dancing,man dancing,0,OTHER,False,False,8,3,0.0
+🤑,money-mouth face,money-mouth face,0,OTHER,False,False,7,2,0.5
+🐆,leopard,leopard,0,OTHER,False,False,7,3,0.333
+🧐,face with monocle,غور سے دیکھنا,0,THINK,True,True,7,6,0.667
+🟣,purple circle,purple circle,0,OTHER,False,False,7,3,0.0
+😙,kissing face with smiling eyes,kissing face with smiling eyes,0,OTHER,False,False,7,5,0.4
+🤟,love-you gesture,love-you gesture,0,OTHER,False,False,7,3,0.0
+🎄,Christmas tree,Christmas tree,0,OTHER,False,False,7,1,0.0
+🤧,sneezing face,sneezing face,0,OTHER,False,False,6,4,0.25
+💛,yellow heart,دل,1,LOVE,False,True,6,4,0.0
+🍵,teacup without handle,teacup without handle,0,OTHER,False,False,6,5,0.0
+🎑,moon viewing ceremony,moon viewing ceremony,0,OTHER,False,False,6,4,0.0
+🔨,hammer,hammer,0,OTHER,False,False,6,6,0.667
+🐐,goat,بکرا,-1,INSULT,True,True,6,3,0.667
+👋,waving hand,waving hand,0,OTHER,False,False,6,6,0.667
+👑,crown,تاج,1,PRAISE,False,True,6,3,0.333
+💟,heart decoration,heart decoration,0,OTHER,False,False,6,3,0.0
+🏴,black flag,black flag,0,OTHER,False,False,6,1,0.0
+🔔,bell,bell,0,OTHER,False,False,6,6,0.0
+❗,red exclamation mark,red exclamation mark,0,OTHER,False,False,6,4,0.25
+🔸,small orange diamond,small orange diamond,0,OTHER,False,False,6,3,0.0
+⛲,fountain,fountain,0,OTHER,False,False,6,1,0.0
+🔹,small blue diamond,small blue diamond,0,OTHER,False,False,6,2,0.0
+🙇,person bowing,person bowing,0,OTHER,False,False,6,3,0.0
+🍳,cooking,cooking,0,OTHER,False,False,6,1,0.0
+💩,pile of poo,گندگی,-1,ANGER,True,True,6,0,
+🦉,owl,owl,0,OTHER,False,False,6,0,
+👞,man’s shoe,man’s shoe,0,OTHER,False,False,5,2,1.0
+🇹🇷,Türkiye,Türkiye,0,OTHER,False,False,5,5,0.2
+😫,tired face,تھکا,-1,SAD,False,True,5,4,0.5
+🍹,tropical drink,tropical drink,0,OTHER,False,False,5,4,0.0
+🥸,disguised face,بھیس بدلا چہرہ,0,TEASE,True,True,5,3,1.0
+♦,diamond suit,diamond suit,0,OTHER,False,False,5,3,0.0
+🌲,evergreen tree,evergreen tree,0,OTHER,False,False,5,3,0.0
+♠,spade suit,spade suit,0,OTHER,False,False,5,2,0.0
+🐖,pig,pig,0,OTHER,False,False,5,2,0.5
+🤚,raised back of hand,raised back of hand,0,OTHER,False,False,5,3,0.667
+🍄,mushroom,mushroom,0,OTHER,False,False,5,2,0.0
+🧕,woman with headscarf,woman with headscarf,0,OTHER,False,False,5,4,0.0
+🇸🇦,Saudi Arabia,Saudi Arabia,0,OTHER,False,False,5,5,0.2
+🆔,ID button,ID button,0,OTHER,False,False,5,4,0.0
+📿,prayer beads,تسبیح,1,PRAYER,False,True,5,1,0.0
+🌞,sun with face,sun with face,0,OTHER,False,False,5,4,0.0
+☠,skull and crossbones,skull and crossbones,0,OTHER,False,False,5,2,0.0
+⬇,down arrow,down arrow,0,OTHER,False,False,5,3,0.333
+👹,ogre,ogre,0,OTHER,False,False,5,1,0.0
+🔏,locked with pen,locked with pen,0,OTHER,False,False,5,1,1.0
+👯,people with bunny ears,people with bunny ears,0,OTHER,False,False,5,0,
+🧑,person,person,0,OTHER,False,False,5,0,
+🍌,banana,banana,0,OTHER,False,False,4,3,0.667
+🐣,hatching chick,hatching chick,0,OTHER,False,False,4,3,0.667
+🎊,confetti ball,confetti ball,0,OTHER,False,False,4,3,0.0
+😗,kissing face,بوسہ,1,LOVE,True,True,4,4,1.0
+✴,eight-pointed star,eight-pointed star,0,OTHER,False,False,4,2,0.0
+💢,anger symbol,anger symbol,0,OTHER,False,False,4,3,0.0
+⛓,chains,chains,0,OTHER,False,False,4,3,0.667
+🔒,locked,locked,0,OTHER,False,False,4,4,0.25
+🌙,crescent moon,چاند,1,FLOWER,False,True,4,3,0.0
+🥄,spoon,spoon,0,OTHER,False,False,4,1,0.0
+🐯,tiger face,tiger face,0,OTHER,False,False,4,2,0.0
+⭐,star,ستارہ,1,PRAISE,False,True,4,2,0.0
+☀,sun,sun,0,OTHER,False,False,4,3,0.0
+😼,cat with wry smile,cat with wry smile,0,OTHER,False,False,4,3,0.0
+🍒,cherries,cherries,0,OTHER,False,False,4,3,0.333
+🎵,musical note,musical note,0,OTHER,False,False,4,2,0.0
+⚔,crossed swords,crossed swords,0,OTHER,False,False,4,2,1.0
+🌍,globe showing Europe-Africa,globe showing Europe-Africa,0,OTHER,False,False,4,3,0.667
+👸,princess,princess,0,OTHER,False,False,4,2,0.0
+😵,face with crossed-out eyes,face with crossed-out eyes,0,OTHER,False,False,4,2,0.5
+🔀,shuffle tracks button,shuffle tracks button,0,OTHER,False,False,4,2,0.0
+🔴,red circle,red circle,0,OTHER,False,False,4,0,
+🌶,hot pepper,hot pepper,0,OTHER,False,False,4,0,
+🍆,eggplant,eggplant,0,OTHER,False,False,3,1,0.0
+🔙,BACK arrow,BACK arrow,0,OTHER,False,False,3,1,0.0
+🤝,handshake,ہاتھ ملانا,1,PRAISE,False,True,3,2,0.5
+📖,open book,open book,0,OTHER,False,False,3,2,0.0
+⏰,alarm clock,alarm clock,0,OTHER,False,False,3,3,0.0
+🍔,hamburger,hamburger,0,OTHER,False,False,3,1,0.0
+✒,black nib,black nib,0,OTHER,False,False,3,2,1.0
+📣,megaphone,megaphone,0,OTHER,False,False,3,2,0.5
+🥚,egg,egg,0,OTHER,False,False,3,3,0.667
+🌠,shooting star,shooting star,0,OTHER,False,False,3,3,0.333
+🐽,pig nose,pig nose,0,OTHER,False,False,3,1,0.0
+🍓,strawberry,strawberry,0,OTHER,False,False,3,2,0.0
+💋,kiss mark,kiss mark,0,OTHER,False,False,3,2,0.0
+♻,recycling symbol,recycling symbol,0,OTHER,False,False,3,2,0.0
+✈,airplane,airplane,0,OTHER,False,False,3,3,0.667
+🛏,bed,bed,0,OTHER,False,False,3,2,0.0
+👠,high-heeled shoe,high-heeled shoe,0,OTHER,False,False,3,1,0.0
+⭕,hollow red circle,hollow red circle,0,OTHER,False,False,3,2,0.5
+💡,light bulb,light bulb,0,OTHER,False,False,3,3,0.0
+🍿,popcorn,پاپ کارن / تماشا,0,TEASE,True,True,3,3,1.0
+🦌,deer,deer,0,OTHER,False,False,3,2,0.0
+👫,woman and man holding hands,woman and man holding hands,0,OTHER,False,False,3,3,0.0
+🐸,frog,frog,0,OTHER,False,False,3,3,0.667
+🚫,prohibited,prohibited,0,OTHER,False,False,3,1,1.0
+🤥,lying face,جھوٹا,-1,INSULT,True,True,3,2,0.0
+🅾,O button (blood type),O button (blood type),0,OTHER,False,False,3,1,1.0
+👮,police officer,police officer,0,OTHER,False,False,3,1,0.0
+🌎,globe showing Americas,globe showing Americas,0,OTHER,False,False,3,3,0.333
+✏,pencil,pencil,0,OTHER,False,False,3,1,1.0
+🤬,face with symbols on mouth,گالی,-1,ANGER,False,True,3,2,0.5
+🔃,clockwise vertical arrows,clockwise vertical arrows,0,OTHER,False,False,3,1,0.0
+🐩,poodle,poodle,0,OTHER,False,False,3,2,1.0
+🤍,white heart,دل,1,LOVE,False,True,3,2,0.5
+🏡,house with garden,house with garden,0,OTHER,False,False,3,1,0.0
+🐈,cat,cat,0,OTHER,False,False,3,3,0.333
+💂,guard,guard,0,OTHER,False,False,3,1,1.0
+🎈,balloon,balloon,0,OTHER,False,False,3,2,0.5
+🥾,hiking boot,hiking boot,0,OTHER,False,False,3,1,1.0
+💤,ZZZ,ZZZ,0,OTHER,False,False,3,1,0.0
+🧸,teddy bear,teddy bear,0,OTHER,False,False,3,2,0.0
+🔊,speaker high volume,speaker high volume,0,OTHER,False,False,3,2,0.0
+🦓,zebra,zebra,0,OTHER,False,False,3,1,1.0
+🕵,detective,detective,0,OTHER,False,False,3,1,1.0
+☔,umbrella with rain drops,umbrella with rain drops,0,OTHER,False,False,3,1,0.0
+‼,double exclamation mark,double exclamation mark,0,OTHER,False,False,3,1,0.0
+👿,angry face with horns,angry face with horns,0,OTHER,False,False,3,1,0.0
+🤮,face vomiting,قے / نفرت,-1,ANGER,True,True,3,0,
+🧡,orange heart,orange heart,0,OTHER,False,False,3,0,
+🚨,police car light,police car light,0,OTHER,False,False,3,0,
+🔞,no one under eighteen,no one under eighteen,0,OTHER,False,False,3,0,
+🚴,person biking,person biking,0,OTHER,False,False,2,1,0.0
+🇦🇿,Azerbaijan,Azerbaijan,0,OTHER,False,False,2,2,0.0
+❓,red question mark,red question mark,0,OTHER,False,False,2,1,1.0
+🎷,saxophone,saxophone,0,OTHER,False,False,2,2,0.0
+🐥,front-facing baby chick,front-facing baby chick,0,OTHER,False,False,2,2,1.0
+🐤,baby chick,baby chick,0,OTHER,False,False,2,2,1.0
+😸,grinning cat with smiling eyes,grinning cat with smiling eyes,0,OTHER,False,False,2,2,0.0
+💀,skull,skull,0,OTHER,False,False,2,1,1.0
+🎅,Santa Claus,Santa Claus,0,OTHER,False,False,2,1,1.0
+👨✈,man::airplane,man::airplane,0,OTHER,False,False,2,1,0.0
+🐾,paw prints,paw prints,0,OTHER,False,False,2,1,0.0
+🦄,unicorn,unicorn,0,OTHER,False,False,2,1,1.0
+💧,droplet,droplet,0,OTHER,False,False,2,1,1.0
+🤯,exploding head,exploding head,0,OTHER,False,False,2,1,0.0
+🍷,wine glass,wine glass,0,OTHER,False,False,2,2,0.5
+🎗,reminder ribbon,reminder ribbon,0,OTHER,False,False,2,2,0.0
+🌑,new moon,new moon,0,OTHER,False,False,2,2,0.0
+🏌,person golfing,person golfing,0,OTHER,False,False,2,1,1.0
+👨,man,man,0,OTHER,False,False,2,2,0.0
+📩,envelope with arrow,envelope with arrow,0,OTHER,False,False,2,1,0.0
+👣,footprints,footprints,0,OTHER,False,False,2,1,0.0
+👤,bust in silhouette,bust in silhouette,0,OTHER,False,False,2,2,0.5
+🔖,bookmark,bookmark,0,OTHER,False,False,2,1,0.0
+❌,cross mark,cross mark,0,OTHER,False,False,2,1,1.0
+🦮,guide dog,guide dog,0,OTHER,False,False,2,1,1.0
+🎀,ribbon,ribbon,0,OTHER,False,False,2,1,0.0
+⚰,coffin,coffin,0,OTHER,False,False,2,1,0.0
+🌆,cityscape at dusk,cityscape at dusk,0,OTHER,False,False,2,2,0.0
+⤵,right arrow curving down,right arrow curving down,0,OTHER,False,False,2,1,0.0
+🏆,trophy,trophy,0,OTHER,False,False,2,1,0.0
+📌,pushpin,pushpin,0,OTHER,False,False,2,2,0.0
+🎋,tanabata tree,tanabata tree,0,OTHER,False,False,2,1,0.0
+📗,green book,green book,0,OTHER,False,False,2,2,0.0
+🏴☠,black flag::skull and crossbones,black flag::skull and crossbones,0,OTHER,False,False,2,2,0.5
+💸,money with wings,money with wings,0,OTHER,False,False,2,1,1.0
+🚗,automobile,automobile,0,OTHER,False,False,2,2,0.0
+🐬,dolphin,dolphin,0,OTHER,False,False,2,1,0.0
+🤒,face with thermometer,face with thermometer,0,OTHER,False,False,2,2,0.5
+😿,crying cat,crying cat,0,OTHER,False,False,2,1,0.0
+💣,bomb,bomb,0,OTHER,False,False,2,1,1.0
+🍥,fish cake with swirl,fish cake with swirl,0,OTHER,False,False,2,1,0.0
+🤏,pinching hand,pinching hand,0,OTHER,False,False,2,1,0.0
+🏅,sports medal,sports medal,0,OTHER,False,False,2,2,1.0
+🥛,glass of milk,glass of milk,0,OTHER,False,False,2,1,0.0
+🔫,water pistol,water pistol,0,OTHER,False,False,2,1,0.0
+🌈,rainbow,rainbow,0,OTHER,False,False,2,2,0.0
+🦁,lion,lion,0,OTHER,False,False,2,2,0.5
+🏷,label,label,0,OTHER,False,False,2,2,0.0
+🕴,person in suit levitating,person in suit levitating,0,OTHER,False,False,2,1,0.0
+🗣,speaking head,speaking head,0,OTHER,False,False,2,1,0.0
+🤠,cowboy hat face,cowboy hat face,0,OTHER,False,False,2,1,0.0
+🙀,weary cat,weary cat,0,OTHER,False,False,2,2,0.5
+🌜,last quarter moon face,last quarter moon face,0,OTHER,False,False,2,1,0.0
+👁,eye,eye,0,OTHER,False,False,2,1,0.0
+🤹,person juggling,person juggling,0,OTHER,False,False,2,1,0.0
+🙎,person pouting,person pouting,0,OTHER,False,False,2,2,1.0
+🎁,wrapped gift,wrapped gift,0,OTHER,False,False,2,1,0.0
+🪔,diya lamp,diya lamp,0,OTHER,False,False,2,1,0.0
+➖,minus,minus,0,OTHER,False,False,2,1,0.0
+⛽,fuel pump,fuel pump,0,OTHER,False,False,2,2,1.0
+🏁,chequered flag,chequered flag,0,OTHER,False,False,2,2,0.5
+🎒,backpack,backpack,0,OTHER,False,False,2,1,1.0
+🧚,fairy,fairy,0,OTHER,False,False,2,1,1.0
+🔗,link,link,0,OTHER,False,False,2,2,0.5
+👢,woman’s boot,woman’s boot,0,OTHER,False,False,2,2,0.0
+💠,diamond with a dot,diamond with a dot,0,OTHER,False,False,2,1,0.0
+🗞,rolled-up newspaper,rolled-up newspaper,0,OTHER,False,False,2,1,0.0
+🔧,wrench,wrench,0,OTHER,False,False,2,1,0.0
+🤤,drooling face,drooling face,0,OTHER,False,False,2,2,0.5
+🔐,locked with key,locked with key,0,OTHER,False,False,2,1,1.0
+🐕🦺,dog::safety vest,dog::safety vest,0,OTHER,False,False,2,0,
+🏠,house,house,0,OTHER,False,False,2,0,
+🐭,mouse face,mouse face,0,OTHER,False,False,2,0,
+🤘,sign of the horns,sign of the horns,0,OTHER,False,False,2,0,
+🚌,bus,bus,0,OTHER,False,False,2,0,
+🥪,sandwich,sandwich,0,OTHER,False,False,2,0,
+↗,up-right arrow,up-right arrow,0,OTHER,False,False,2,0,
+👰,person with veil,person with veil,0,OTHER,False,False,2,0,
+😨,fearful face,fearful face,0,OTHER,False,False,2,0,
+🤡,clown face,مسخرہ,-1,SMIRK,True,True,2,0,
+😽,kissing cat,kissing cat,0,OTHER,False,False,2,0,
+🍟,french fries,french fries,0,OTHER,False,False,1,1,0.0
+🎺,trumpet,trumpet,0,OTHER,False,False,1,1,0.0
+🎙,studio microphone,studio microphone,0,OTHER,False,False,1,1,0.0
+📕,closed book,closed book,0,OTHER,False,False,1,1,0.0
+🍯,honey pot,honey pot,0,OTHER,False,False,1,1,0.0
+🥔,potato,potato,0,OTHER,False,False,1,1,1.0
+🍅,tomato,tomato,0,OTHER,False,False,1,1,1.0
+🍈,melon,melon,0,OTHER,False,False,1,1,1.0
+🌰,chestnut,chestnut,0,OTHER,False,False,1,1,1.0
+◀,reverse button,reverse button,0,OTHER,False,False,1,1,0.0
+💬,speech balloon,speech balloon,0,OTHER,False,False,1,1,0.0
+🤞,crossed fingers,crossed fingers,0,OTHER,False,False,1,1,0.0
+🥤,cup with straw,cup with straw,0,OTHER,False,False,1,1,1.0
+🌕,full moon,full moon,0,OTHER,False,False,1,1,0.0
+🌊,water wave,water wave,0,OTHER,False,False,1,1,0.0
+🌄,sunrise over mountains,sunrise over mountains,0,OTHER,False,False,1,1,0.0
+🗻,mount fuji,mount fuji,0,OTHER,False,False,1,1,0.0
+🍴,fork and knife,fork and knife,0,OTHER,False,False,1,1,0.0
+🧔,person beard,person beard,0,OTHER,False,False,1,1,1.0
+👕,t-shirt,t-shirt,0,OTHER,False,False,1,1,0.0
+👖,jeans,jeans,0,OTHER,False,False,1,1,0.0
+👔,necktie,necktie,0,OTHER,False,False,1,1,0.0
+👟,running shoe,running shoe,0,OTHER,False,False,1,1,0.0
+👜,handbag,handbag,0,OTHER,False,False,1,1,0.0
+👥,busts in silhouette,busts in silhouette,0,OTHER,False,False,1,1,1.0
+🌤,sun behind small cloud,sun behind small cloud,0,OTHER,False,False,1,1,0.0
+💊,pill,pill,0,OTHER,False,False,1,1,0.0
+😺,grinning cat,grinning cat,0,OTHER,False,False,1,1,0.0
+👐,open hands,open hands,0,OTHER,False,False,1,1,1.0
+↕,up-down arrow,up-down arrow,0,OTHER,False,False,1,1,0.0
+🤸,person cartwheeling,person cartwheeling,0,OTHER,False,False,1,1,0.0
+🚔,oncoming police car,oncoming police car,0,OTHER,False,False,1,1,0.0
+🍚,cooked rice,cooked rice,0,OTHER,False,False,1,1,1.0
+🔻,red triangle pointed down,red triangle pointed down,0,OTHER,False,False,1,1,0.0
+💆,person getting massage,person getting massage,0,OTHER,False,False,1,1,0.0
+🧠,brain,brain,0,OTHER,False,False,1,1,1.0
+🏧,ATM sign,ATM sign,0,OTHER,False,False,1,1,1.0
+🪙,coin,coin,0,OTHER,False,False,1,1,1.0
+💰,money bag,money bag,0,OTHER,False,False,1,1,1.0
+🍑,peach,peach,0,OTHER,False,False,1,1,0.0
+🍎,red apple,red apple,0,OTHER,False,False,1,1,0.0
+🐴,horse face,horse face,0,OTHER,False,False,1,1,1.0
+🚭,no smoking,no smoking,0,OTHER,False,False,1,1,0.0
+🧼,soap,soap,0,OTHER,False,False,1,1,1.0
+👩❤👩,woman::red heart::woman,woman::red heart::woman,0,OTHER,False,False,1,1,0.0
+👨👦👦,man::boy::boy,man::boy::boy,0,OTHER,False,False,1,1,0.0
+↖,up-left arrow,up-left arrow,0,OTHER,False,False,1,1,0.0
+💉,syringe,syringe,0,OTHER,False,False,1,1,1.0
+🐜,ant,ant,0,OTHER,False,False,1,1,1.0
+🦆,duck,duck,0,OTHER,False,False,1,1,0.0
+🍉,watermelon,watermelon,0,OTHER,False,False,1,1,1.0
+🎃,jack-o-lantern,jack-o-lantern,0,OTHER,False,False,1,1,1.0
+🍇,grapes,grapes,0,OTHER,False,False,1,1,1.0
+🇧🇬,Bulgaria,Bulgaria,0,OTHER,False,False,1,1,1.0
+🐃,water buffalo,بھینس,-1,INSULT,True,True,1,1,1.0
+🕝,two-thirty,two-thirty,0,OTHER,False,False,1,1,0.0
+🏵,rosette,rosette,0,OTHER,False,False,1,1,0.0
+🥱,yawning face,yawning face,0,OTHER,False,False,1,1,0.0
+💴,yen banknote,yen banknote,0,OTHER,False,False,1,1,0.0
+👨💻,man::laptop,man::laptop,0,OTHER,False,False,1,1,1.0
+🥈,2nd place medal,2nd place medal,0,OTHER,False,False,1,1,1.0
+🥇,1st place medal,1st place medal,0,OTHER,False,False,1,1,1.0
+🏍,motorcycle,motorcycle,0,OTHER,False,False,1,1,1.0
+🦺,safety vest,safety vest,0,OTHER,False,False,1,1,1.0
+🧳,luggage,luggage,0,OTHER,False,False,1,1,1.0
+📽,film projector,film projector,0,OTHER,False,False,1,1,1.0
+🎥,movie camera,movie camera,0,OTHER,False,False,1,1,1.0
+🌧,cloud with rain,cloud with rain,0,OTHER,False,False,1,1,1.0
+⚠,warning,warning,0,OTHER,False,False,1,1,0.0
+🐝,honeybee,honeybee,0,OTHER,False,False,1,1,0.0
+🌏,globe showing Asia-Australia,globe showing Asia-Australia,0,OTHER,False,False,1,1,0.0
+🔓,unlocked,unlocked,0,OTHER,False,False,1,1,0.0
+🌅,sunrise,sunrise,0,OTHER,False,False,1,1,0.0
+💨,dashing away,dashing away,0,OTHER,False,False,1,1,0.0
+📷,camera,camera,0,OTHER,False,False,1,1,1.0
+🗓,spiral calendar,spiral calendar,0,OTHER,False,False,1,1,0.0
+⏲,timer clock,timer clock,0,OTHER,False,False,1,1,0.0
+❔,white question mark,white question mark,0,OTHER,False,False,1,1,0.0
+⏏,eject button,eject button,0,OTHER,False,False,1,1,0.0
+🔕,bell with slash,bell with slash,0,OTHER,False,False,1,1,1.0
+📃,page with curl,page with curl,0,OTHER,False,False,1,1,0.0
+⚖,balance scale,balance scale,0,OTHER,False,False,1,1,0.0
+🌔,waxing gibbous moon,waxing gibbous moon,0,OTHER,False,False,1,1,0.0
+👨⚕,man::medical symbol,man::medical symbol,0,OTHER,False,False,1,1,0.0
+⚒,hammer and pick,hammer and pick,0,OTHER,False,False,1,1,0.0
+⛏,pick,pick,0,OTHER,False,False,1,1,0.0
+📱,mobile phone,mobile phone,0,OTHER,False,False,1,1,0.0
+🦂,scorpion,scorpion,0,OTHER,False,False,1,1,1.0
+🦎,lizard,lizard,0,OTHER,False,False,1,1,1.0
+🤎,brown heart,brown heart,0,OTHER,False,False,1,1,0.0
+👶,baby,baby,0,OTHER,False,False,1,1,1.0
+🍺,beer mug,beer mug,0,OTHER,False,False,1,1,0.0
+🔑,key,key,0,OTHER,False,False,1,1,0.0
+🐱,cat face,cat face,0,OTHER,False,False,1,1,0.0
+🚖,oncoming taxi,oncoming taxi,0,OTHER,False,False,1,1,1.0
+🏹,bow and arrow,bow and arrow,0,OTHER,False,False,1,0,
+🎖,military medal,military medal,0,OTHER,False,False,1,0,
+👼,baby angel,baby angel,0,OTHER,False,False,1,0,
+👃,nose,nose,0,OTHER,False,False,1,0,
+🗡,dagger,dagger,0,OTHER,False,False,1,0,
+🖍,crayon,crayon,0,OTHER,False,False,1,0,
+🌀,cyclone,cyclone,0,OTHER,False,False,1,0,
+✉,envelope,envelope,0,OTHER,False,False,1,0,
+📨,incoming envelope,incoming envelope,0,OTHER,False,False,1,0,
+📓,notebook,notebook,0,OTHER,False,False,1,0,
+❇,sparkle,sparkle,0,OTHER,False,False,1,0,
+⚓,anchor,anchor,0,OTHER,False,False,1,0,
+🔪,kitchen knife,kitchen knife,0,OTHER,False,False,1,0,
+©,copyright,copyright,0,OTHER,False,False,1,0,
+🏴󠁧󠁢󠁥󠁮󠁧󠁿,England,England,0,OTHER,False,False,1,0,
+🎓,graduation cap,graduation cap,0,OTHER,False,False,1,0,
+🦶,foot,foot,0,OTHER,False,False,1,0,
+🦧,orangutan,orangutan,0,OTHER,False,False,1,0,
+🥘,shallow pan of food,shallow pan of food,0,OTHER,False,False,1,0,
+🍲,pot of food,pot of food,0,OTHER,False,False,1,0,
+🎇,sparkler,sparkler,0,OTHER,False,False,1,0,
+🇨🇳,China,China,0,OTHER,False,False,1,0,
+💮,white flower,white flower,0,OTHER,False,False,1,0,
+🍛,curry rice,curry rice,0,OTHER,False,False,1,0,
+🔜,SOON arrow,SOON arrow,0,OTHER,False,False,1,0,
+🆙,UP! button,UP! button,0,OTHER,False,False,1,0,
+🚁,helicopter,helicopter,0,OTHER,False,False,1,0,
+👩❤👨,woman::red heart::man,woman::red heart::man,0,OTHER,False,False,1,0,
+👱,person blond hair,person blond hair,0,OTHER,False,False,1,0,
+👧,girl,girl,0,OTHER,False,False,1,0,
+🌛,first quarter moon face,first quarter moon face,0,OTHER,False,False,1,0,
+🌟,glowing star,glowing star,0,OTHER,False,False,1,0,
+🥃,tumbler glass,tumbler glass,0,OTHER,False,False,1,0,
+🍫,chocolate bar,chocolate bar,0,OTHER,False,False,1,0,
+🥒,cucumber,cucumber,0,OTHER,False,False,1,0,
+🥕,carrot,carrot,0,OTHER,False,False,1,0,
+🎹,musical keyboard,musical keyboard,0,OTHER,False,False,1,0,
+🎛,control knobs,control knobs,0,OTHER,False,False,1,0,
+☎,telephone,telephone,0,OTHER,False,False,1,0,
+🤵,person in tuxedo,person in tuxedo,0,OTHER,False,False,1,0,
+🙍,person frowning,person frowning,0,OTHER,False,False,1,0,
+💅,nail polish,nail polish,0,OTHER,False,False,1,0,
+🪀,yo-yo,yo-yo,0,OTHER,False,False,1,0,
+🌃,night with stars,night with stars,0,OTHER,False,False,1,0,
+💑,couple with heart,couple with heart,0,OTHER,False,False,1,0,
+🍾,bottle with popping cork,bottle with popping cork,0,OTHER,False,False,1,0,
+🌓,first quarter moon,first quarter moon,0,OTHER,False,False,1,0,
+🏏,cricket game,cricket game,0,OTHER,False,False,1,0,
+♨,hot springs,hot springs,0,OTHER,False,False,1,0,
+👨🦯,man::white cane,man::white cane,0,OTHER,False,False,1,0,

@@ -1,0 +1,36 @@
+urdu_text,is_sarcastic,pred,p_sarcastic,conf,error_type,emoji_meaning,phenomena
+ٹھیک ہو جاو ناں منی اللہ پاک صحت زندگی دے آپ کو❤,1,0,0.032326274,0.46767372,false negative (missed sarcasm),"❤ = red heart / دل / محبت [LOVE, pol +, end]","emoji, negation, Punjabi"
+ہے تمنا کہ کوئ تمنا نہ رہے 🔥,1,0,0.040071517,0.45992848,false negative (missed sarcasm),"🔥 = fire / آگ / زبردست [PRAISE, pol +, end]","emoji, negation, spelling variant"
+نواب جب دل ہی کالے ھوں کہاں کام آتے ہیں دم، تعویز، استخارے🔥 💔,1,0,0.043217134,0.45678288,false negative (missed sarcasm),"🔥 = fire / آگ / زبردست [PRAISE, pol +, end]; 💔 = broken heart / ٹوٹا دل [SAD, pol -, end]","emoji, mixed-polarity emojis"
+"مولانا طارق جمیل انسانی حقوق کے علمبردار اورنگزیب فارقی ؒ کے گلے لگ کر ""امت"" کے قتال پر روتے ہوئے
+#Sarcasm http://t.co/nRm6rcughy",0,1,0.9566191,0.45661908,false positive (literal read as sarcasm),(no emoji),"code-mixing (Latin), quoted speech"
+شکریہ ادا اللّٰہ سائیں خوش رکھے تہاکوں سدا۔⁦⁩⁦⁩⁦⁩⁦⁩⁦⁩⁦⁩,1,0,0.044430174,0.45556983,false negative (missed sarcasm),(no emoji),spelling variant
+شکریہ جویریہ 😊😊,1,0,0.04994651,0.45005348,false negative (missed sarcasm),"😊 = smiling face with smiling eyes / مسکراہٹ [LOVE, pol +, end]; 😊 = smiling face with smiling eyes / مسکراہٹ [LOVE, pol +, end]","emoji, very short / context-dependent"
+تو میرا خیر خاہ😍😂😂😂,1,0,0.052421495,0.4475785,false negative (missed sarcasm),"😍 = smiling face with heart-eyes / پیار بھری نظر [LOVE, pol +, end]; 😂 = face with tears of joy / ہنسی کے آنسو [LAUGH, pol +, irony-cue, end]; 😂 = face with tears of joy / ہنسی کے آنسو [LAUGH, pol +, irony-cue, end]; 😂 = face with tears of joy / ہنسی کے آنسو [LAUGH, pol +, irony-cue, end]","emoji, irony-cue emoji, very short / context-dependent"
+@x9FwIZZMHUO8p37 پائن اچھے کام کو سراہنا چاہئے اور بھی بہت سی باتیں ہیں تنقید کرنے کے لئے,0,1,0.947323,0.44732302,false positive (literal read as sarcasm),(no emoji),"code-mixing (Latin), spelling variant"
+@pak14_8 آپ لگے رہیں  ہر کسی کی اپنی رائے ویسے میں بھی مانیکا خاندان پر تنقید کرتی ہوں 😅😅,0,1,0.946952,0.446952,false positive (literal read as sarcasm),"😅 = grinning face with sweat / شرمندہ ہنسی [LAUGH, pol 0, irony-cue, end]; 😅 = grinning face with sweat / شرمندہ ہنسی [LAUGH, pol 0, irony-cue, end]","emoji, irony-cue emoji, laughter-only emoji, code-mixing (Latin), political context"
+چہرہ صاف دل میں داغ منہ پہ آپ پیچھے سانپ 🥀🔥,1,0,0.054537125,0.44546288,false negative (missed sarcasm),"🥀 = wilted flower / مرجھایا پھول / اداسی [SAD, pol -, end]; 🔥 = fire / آگ / زبردست [PRAISE, pol +, end]","emoji, mixed-polarity emojis, spelling variant"
+"@MZeeshanSid @Shoaib_Jatt بھائی پرفارمنس پر تنقید صحافی کا کام ہے جواب میدان میں دیا جاتا ہے,  اس نے ان اؤٹ کی بات ہی نہیں کی",0,1,0.9454408,0.44544083,false positive (literal read as sarcasm),(no emoji),"negation, code-mixing (Latin)"
+ﯾــــــﻘﯿﻦ ﮐﯿﺠﯿﺌﮯ ﺻــــﺎﺣﺒــــــــــ ﯾـــــــﻘﯿﻦ ﻧﮯ ﮨﯽ ﻣﺎﺭﺍ ﮨــﮯ ___ 💔 💔💔,1,0,0.05466823,0.44533178,false negative (missed sarcasm),"💔 = broken heart / ٹوٹا دل [SAD, pol -, end]; 💔 = broken heart / ٹوٹا دل [SAD, pol -, end]; 💔 = broken heart / ٹوٹا دل [SAD, pol -, end]",emoji
+@AbidSherAli شکل رب نے بنائی انسان نے نہیں پلیز شکل وصورت پر مت تنقید کریں۔,0,1,0.9443368,0.44433677,false positive (literal read as sarcasm),(no emoji),"negation, code-mixing (Latin)"
+@Shoaib_Jatt تنقید طریقے کی کرتا تو یوں کومنٹس میں گالیاں نہیں کھا رہا ہوتا,0,1,0.94386643,0.44386643,false positive (literal read as sarcasm),(no emoji),"negation, code-mixing (Latin)"
+"""عوام عمران خان کی تمام سازشیں جان چکی ہے""
+
+مریم اورنگزیب کی عمران خان پر تنقید
+
+@Marriyum_A 
+#GeoNews https://t.co/dS7hNG6zEf",0,1,0.94339246,0.44339246,false positive (literal read as sarcasm),(no emoji),"code-mixing (Latin), quoted speech, political context"
+پنڈی بوائز،،توبہ ہے،،ویسے ٹھیک بھی ہے ،،خوشامد کاکوئی لیول تو ضرورہونا چاہیے،،شاباش 🙏,1,0,0.05757092,0.44242907,false negative (missed sarcasm),"🙏 = folded hands / دعا / شکریہ [PRAYER, pol +, end]",emoji
+کہنے لگےوہ مجھ سے کہ بد تمیز ہو میں نے کہا حضور، نہایت بھی بولئے🙏🙏 اردو_زبان,1,0,0.05770091,0.4422991,false negative (missed sarcasm),"🙏 = folded hands / دعا / شکریہ [PRAYER, pol +, middle]; 🙏 = folded hands / دعا / شکریہ [PRAYER, pol +, middle]",emoji
+"@SaleemKhanSafi زہ خپل خوگ او دارانو مشرانو چی پکی 
+@takkar1234 @NafeesRehmanDr 
+@hasankhyber 
+درحواست کوم چی دا سڑے پوھا کے۔۔ پہ عمران تنقید اوکہ سہ خبرہ نہ دا خو چی کوم زبان دا استعمالوی ۔۔ دا نہ صحافت دے او نہ پختون ولی ۔۔
+دا کوم کنزل چی تا کیگی پہ الل",0,1,0.9413502,0.44135022,false positive (literal read as sarcasm),(no emoji),"negation, code-mixing (Latin), Punjabi, political context"
+@ProPakistani115 @78ds2 @ather_hameed @Marwat96060979 @ijazali7 بھیا آپ ماشاءاللہ سمجھدار ہیں، تنقید ہمیشہ حکمران پر ہوتی ہے، جس کے پاس طاقت اور اختیار ہوتا ہے۔ جس کرپٹ لوگوں کی بات آپ کی رہے ہیں، ان کے خلاف مقدمات تو پہلے ہی عدالتوں میں ہیں اور مقدمہ کے,0,1,0.9369329,0.43693292,false positive (literal read as sarcasm),(no emoji),"ironic-praise marker, code-mixing (Latin)"
+میں فقط اتنا سچا ہوں🖤 کہ میں مانتا ہوں میں برا ہوں🚬🌚,1,0,0.063080624,0.4369194,false negative (missed sarcasm),"🖤 = black heart / کالا دل [LOVE, pol 0, middle]; 🚬 = cigarette / cigarette [OTHER, pol 0, end]; 🌚 = new moon face / کالا چاند / شرارت [SMIRK, pol 0, irony-cue, end]","emoji, irony-cue emoji"
+@fawadchaudhry ایک دوسرے پر تنقید بند کرو اپنا بوریاں بستر بندو اور گھر جانے کی تیاری کرو شاباش,0,1,0.9362057,0.4362057,false positive (literal read as sarcasm),(no emoji),"ironic-praise marker, code-mixing (Latin)"
+وادہ وکہ 😂,1,0,0.06456848,0.4354315,false negative (missed sarcasm),"😂 = face with tears of joy / ہنسی کے آنسو [LAUGH, pol +, irony-cue, end]","emoji, irony-cue emoji, laughter-only emoji, very short / context-dependent"
+دنیا سے بے نیاز کر کے بس اپنا بنا لے گا,1,0,0.06810969,0.4318903,false negative (missed sarcasm),(no emoji),"negation, ironic-praise marker"
+وہ اب بھی یاد ہے مجھے اور لعنت ہو ایسی یادداشت پر جون ایلیا 🌴🌴🌴🌷🌷🌹🌹🌾🌾🌴 اردو_زبان 🌴🌴🌴,1,0,0.06902928,0.43097073,false negative (missed sarcasm),"🌴 = palm tree / کھجور کا درخت [FLOWER, pol +, middle]; 🌴 = palm tree / کھجور کا درخت [FLOWER, pol +, middle]; 🌴 = palm tree / کھجور کا درخت [FLOWER, pol +, middle]; 🌷 = tulip / پھول [FLOWER, pol +, middle]; 🌷 = tulip / پھول [FLOWER, pol +, middle]; 🌹 = rose / گلاب [FLOWER, pol +, middle]; 🌹 = rose / گلاب [FLOWER, pol +, middle]; 🌾 = sheaf of rice / فصل [FLOWER, pol +, middle]; 🌾 = sheaf of rice / فصل [FLOWER, pol +, middle]; 🌴 = palm tree / کھجور کا درخت [FLOWER, pol +, middle]; 🌴 = palm tree / کھجور کا درخت [FLOWER, pol +, end]; 🌴 = palm tree / کھجور کا درخت [FLOWER, pol +, end]; 🌴 = palm tree / کھجور کا درخت [FLOWER, pol +, end]","emoji, spelling variant"
+پٹواریوں کے نجومی 😂😂😂😂,0,1,0.9301064,0.4301064,false positive (literal read as sarcasm),"😂 = face with tears of joy / ہنسی کے آنسو [LAUGH, pol +, irony-cue, end]; 😂 = face with tears of joy / ہنسی کے آنسو [LAUGH, pol +, irony-cue, end]; 😂 = face with tears of joy / ہنسی کے آنسو [LAUGH, pol +, irony-cue, end]; 😂 = face with tears of joy / ہنسی کے آنسو [LAUGH, pol +, irony-cue, end]","emoji, irony-cue emoji, laughter-only emoji, very short / context-dependent"

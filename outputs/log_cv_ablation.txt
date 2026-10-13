@@ -1,0 +1,28 @@
+posts containing artefact tokens: 842 | sarcastic among them: 835
+emojis removed                                macro-F1 0.8190 ± 0.0071   (73s)
+emojis kept raw                               macro-F1 0.8222 ± 0.0068   (135s)
+emojis -> meaning token                       macro-F1 0.8209 ± 0.0058   (236s)
+emojis -> Urdu gloss                          macro-F1 0.8203 ± 0.0067   (328s)
+emojis -> meaning+cat+polarity                macro-F1 0.8208 ± 0.0054   (439s)
+word only                                     macro-F1 0.8094 ± 0.0055   (475s)
+char only                                     macro-F1 0.8163 ± 0.0024   (542s)
+hand-crafted only                             macro-F1 0.7559 ± 0.0102   (609s)
+word+char+hand                                macro-F1 0.8217 ± 0.0063   (824s)
+raw text, no normalisation                    macro-F1 0.8214 ± 0.0037   (866s)
+Urdu char normalisation only                  macro-F1 0.8229 ± 0.0041   (914s)
+Urdu + social normalisation                   macro-F1 0.8222 ± 0.0068   (979s)
+artefact hashtags removed (word+char+hand)    macro-F1 0.8153 ± 0.0070   (1176s)
+                                        config  macro_f1_mean  macro_f1_std  acc_mean
+0                               emojis removed       0.819041      0.007075  0.825069
+1                              emojis kept raw       0.822202      0.006783  0.827733
+2                      emojis -> meaning token       0.820883      0.005788  0.826361
+3                         emojis -> Urdu gloss       0.820349      0.006676  0.825876
+4               emojis -> meaning+cat+polarity       0.820774      0.005390  0.826361
+5                                    word only       0.809421      0.005468  0.814408
+6                                    char only       0.816258      0.002359  0.821515
+7                            hand-crafted only       0.755946      0.010152  0.759329
+8                               word+char+hand       0.821740      0.006288  0.827169
+9                   raw text, no normalisation       0.821425      0.003748  0.826926
+10                Urdu char normalisation only       0.822920      0.004094  0.828299
+11                 Urdu + social normalisation       0.822202      0.006783  0.827733
+12  artefact hashtags removed (word+char+hand)       0.815294      0.006990  0.820789

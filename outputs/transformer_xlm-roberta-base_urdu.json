@@ -1,0 +1,48 @@
+{
+ "test": {
+  "model": "xlm-roberta-base (emoji urdu)",
+  "accuracy": 0.8170173833485819,
+  "precision_0": 0.840393343419062,
+  "recall_0": 0.8546153846153847,
+  "f1_0": 0.84744469870328,
+  "precision_1": 0.78125,
+  "recall_1": 0.7618510158013544,
+  "f1_1": 0.7714285714285715,
+  "macro_f1": 0.8094366350659257,
+  "support_0": 1300,
+  "support_1": 886,
+  "tn": 1111,
+  "fp": 189,
+  "fn": 211,
+  "tp": 675,
+  "threshold": 0.7399999999999998,
+  "val_macro_f1": 0.8156046598106785,
+  "epochs": 3,
+  "emoji_mode": "urdu",
+  "model_name": "xlm-roberta-base"
+ },
+ "history": [
+  {
+   "epoch": 1,
+   "train_loss": 0.5308396922414936,
+   "val_macro_f1": 0.7990512270089569,
+   "val_acc": 0.8051235132662397,
+   "time_s": 92
+  },
+  {
+   "epoch": 2,
+   "train_loss": 0.41482680460760385,
+   "val_macro_f1": 0.8115264900302743,
+   "val_acc": 0.8147301006404392,
+   "time_s": 87
+  },
+  {
+   "epoch": 3,
+   "train_loss": 0.3595514179661537,
+   "val_macro_f1": 0.8054774079169833,
+   "val_acc": 0.8096980786825252,
+   "time_s": 89
+  }
+ ],
+ "elapsed_s": 313
+}
