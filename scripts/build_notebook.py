@@ -418,7 +418,7 @@ if RUN_TRANSFORMER:
         print(f'XLM-R base (emoji {emoji_mode}): val F1 {f_va:.4f}  test macro-F1 {r["macro_f1"]:.4f}  acc {r["accuracy"]:.4f}  | history: {[round(h["val_macro_f1"], 4) for h in hist]}')
         if emoji_mode == 'augment':
             xlmr_pred, xlmr_prob = pred, p_te
-            xlmr_explainer = SarcasmExplainer(lambda texts: predict_texts(model, tok, list(texts), emoji_mode='augment', max_len=96), name='XLM-R (augment)')
+            xlmr_explainer = SarcasmExplainer(lambda texts, m=model, tk=tok: predict_texts(m, tk, list(texts), emoji_mode='augment', max_len=96), name='XLM-R (augment)')
         else:
             del model; torch.cuda.empty_cache()
     display(results_table(transformer))
