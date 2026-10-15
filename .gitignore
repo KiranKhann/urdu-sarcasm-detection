@@ -1,5 +1,5 @@
 # large fine-tuned transformer checkpoints (1.1 GB each) - regenerate with scripts/run_transformer.py
-outputs/model_xlm-roberta-base_*/
+outputs/model_*/
 outputs/_notebook_unexecuted_backup.ipynb
 # copies written by the notebook when executed from notebooks/
 notebooks/src/
@@ -9,3 +9,6 @@ __pycache__/
 .ipynb_checkpoints/
 report/_*
 .claude/
+# derived submission bundle (attached to the GitHub release instead)
+submission/
+submission.zip

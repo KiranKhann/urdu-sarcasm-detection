@@ -63,7 +63,8 @@ def predict(model, ids, mask, bs=64, device=None):
 
 def fine_tune(model_name: str, train_texts, y_train, val_texts, y_val, *, emoji_mode="keep",
               max_len=96, epochs=3, bs=16, lr=2e-5, warmup=0.1, weight_decay=0.01, patience=1,
-              fp16=None, seed=42, verbose=True, grad_accum=1, freeze_embeddings=True):
+              fp16=None, seed=42, verbose=True, grad_accum=1, freeze_embeddings=True,
+              lora_r=0, label_smoothing=0.0):
     """Returns (model, tokenizer, history, val_probs).
 
     freeze_embeddings: XLM-R's 250k x 768 word-embedding matrix holds 192M of its 278M
@@ -76,10 +77,27 @@ def fine_tune(model_name: str, train_texts, y_train, val_texts, y_val, *, emoji_
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     fp16 = (device.type == "cuda") if fp16 is None else fp16
     tok = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=2).to(device)
-    if freeze_embeddings:
+    extra_kw = {}
+    if "deberta" in model_name.lower():
+        # DeBERTa-v2/v3's disentangled attention overflows under fp16/bf16 autocast and the fused SDPA
+        # path can yield NaN losses -> run it in fp32 with the reference (eager) attention implementation
+        extra_kw["attn_implementation"] = "eager"
+        fp16 = False
+    model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=2, **extra_kw)
+    if lora_r > 0:
+        # LoRA (Hu et al. 2022): train small rank-r adapters on the attention/FFN projections and the
+        # classifier head only -> xlm-roberta-large (560M) fits a 6 GB GPU; weights kept in bf16/fp16.
+        from peft import LoraConfig, TaskType, get_peft_model
+        cfg = LoraConfig(task_type=TaskType.SEQ_CLS, r=lora_r, lora_alpha=2 * lora_r, lora_dropout=0.1,
+                         target_modules=["query", "key", "value", "dense"])
+        model = get_peft_model(model, cfg)
+    elif freeze_embeddings:
         for p in model.base_model.embeddings.word_embeddings.parameters():
             p.requires_grad = False
+    model.to(device)
+    # bf16 autocast where supported (Ampere+): no overflow issues (DeBERTa) and no GradScaler needed
+    use_bf16 = fp16 and device.type == "cuda" and torch.cuda.is_bf16_supported()
+    amp_dtype = torch.bfloat16 if use_bf16 else torch.float16
     n_train = sum(p.numel() for p in model.parameters() if p.requires_grad)
     if verbose:
         print(f"trainable parameters: {n_train / 1e6:.1f}M / {sum(p.numel() for p in model.parameters()) / 1e6:.1f}M")
@@ -93,7 +111,7 @@ def fine_tune(model_name: str, train_texts, y_train, val_texts, y_val, *, emoji_
 
     counts = np.bincount(y_tr.numpy(), minlength=2)
     w = torch.tensor(len(y_tr) / (2.0 * counts), dtype=torch.float32, device=device)
-    crit = nn.CrossEntropyLoss(weight=w)
+    crit = nn.CrossEntropyLoss(weight=w, label_smoothing=label_smoothing)
 
     no_decay = ("bias", "LayerNorm.weight")
     params = [{"params": [p for n, p in model.named_parameters() if p.requires_grad and not any(nd in n for nd in no_decay)], "weight_decay": weight_decay},
@@ -102,7 +120,7 @@ def fine_tune(model_name: str, train_texts, y_train, val_texts, y_val, *, emoji_
     steps_per_epoch = math.ceil(len(tr_ids) / bs / grad_accum)
     total = steps_per_epoch * epochs
     sched = get_linear_schedule_with_warmup(opt, int(warmup * total), total)
-    scaler = torch.amp.GradScaler("cuda", enabled=fp16)
+    scaler = torch.amp.GradScaler("cuda", enabled=bool(fp16) and not use_bf16)
 
     best_f1, best_state, bad, hist, best_probs = -1.0, None, 0, [], None
     for ep in range(1, epochs + 1):
@@ -112,7 +130,7 @@ def fine_tune(model_name: str, train_texts, y_train, val_texts, y_val, *, emoji_
         opt.zero_grad()
         for step, i in enumerate(range(0, len(perm), bs)):
             j = perm[i: i + bs]
-            with torch.autocast(device_type=device.type, dtype=torch.float16, enabled=fp16):
+            with torch.autocast(device_type=device.type, dtype=amp_dtype, enabled=bool(fp16)):
                 logits = model(input_ids=tr_ids[j].to(device), attention_mask=tr_mask[j].to(device)).logits
                 loss = crit(logits.float(), y_tr[j].to(device)) / grad_accum
             scaler.scale(loss).backward()

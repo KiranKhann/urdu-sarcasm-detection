@@ -1,0 +1,29 @@
+cuda: True | model: xlm-roberta-large | emoji: keep | tag: xlm-roberta-large_keep_lora16 | lora: 16 | lr: 0.0002
+Loading weights:   0%|          | 0/389 [00:00<?, ?it/s]Loading weights:   6%|▌         | 22/389 [00:00<00:01, 198.17it/s]Loading weights:  14%|█▍        | 55/389 [00:00<00:01, 268.21it/s]Loading weights:  23%|██▎       | 88/389 [00:00<00:01, 286.25it/s]Loading weights:  30%|███       | 117/389 [00:00<00:01, 257.67it/s]Loading weights:  37%|███▋      | 144/389 [00:00<00:01, 233.38it/s]Loading weights:  43%|████▎     | 168/389 [00:00<00:00, 228.20it/s]Loading weights:  49%|████▉     | 192/389 [00:00<00:00, 216.74it/s]Loading weights:  56%|█████▌    | 218/389 [00:00<00:00, 227.15it/s]Loading weights: 100%|██████████| 389/389 [00:01<00:00, 380.80it/s]
+[transformers] [1mXLMRobertaForSequenceClassification LOAD REPORT[0m from: xlm-roberta-large
+Key                         | Status     | 
+----------------------------+------------+-
+lm_head.layer_norm.bias     | UNEXPECTED | 
+roberta.pooler.dense.bias   | UNEXPECTED | 
+lm_head.bias                | UNEXPECTED | 
+lm_head.layer_norm.weight   | UNEXPECTED | 
+lm_head.dense.bias          | UNEXPECTED | 
+lm_head.dense.weight        | UNEXPECTED | 
+roberta.pooler.dense.weight | UNEXPECTED | 
+classifier.out_proj.weight  | MISSING    | 
+classifier.out_proj.bias    | MISSING    | 
+classifier.dense.bias       | MISSING    | 
+classifier.dense.weight     | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+trainable parameters: 8.1M / 568.0M
+C:\Users\kiran\NLP Sarcasm Detection\src\transformer.py:109: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:219.)
+  y_tr = torch.as_tensor(np.asarray(y_train), dtype=torch.long)
+  epoch 1 step 0/1274  loss 0.7461
+  epoch 1 step 100/1274  loss 0.7042
+  epoch 1 step 200/1274  loss 0.6821
+  epoch 1 step 300/1274  loss 0.6426
+  epoch 1 step 400/1274  loss 0.6021
+  epoch 1 step 500/1274  loss 0.5890

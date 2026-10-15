@@ -28,10 +28,12 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 class SarcasmExplainer:
-    def __init__(self, predict_proba, name="model"):
+    def __init__(self, predict_proba, name="model", threshold: float = 0.5):
         """predict_proba: callable(list[str]) -> np.array of P(sarcastic)."""
         self.predict_proba = predict_proba
         self.name = name
+        self.threshold = threshold
+        self.manifest = None
 
     # ------------------------------------------------------------------ loaders
     @classmethod
@@ -45,17 +47,75 @@ class SarcasmExplainer:
 
     @classmethod
     def load_transformer(cls, path: str, emoji_mode: str = "augment", max_len: int = 96):
+        """Load a fine-tuned encoder saved by scripts/run_transformer.py (full model or a LoRA adapter dir)."""
         from transformers import AutoModelForSequenceClassification, AutoTokenizer
         from .transformer import predict_texts
         import torch
         tok = AutoTokenizer.from_pretrained(path)
-        model = AutoModelForSequenceClassification.from_pretrained(path)
+        if os.path.exists(os.path.join(path, "adapter_config.json")):   # LoRA adapter -> base model + adapter
+            import json as _json
+            from peft import PeftModel
+            base = _json.load(open(os.path.join(path, "adapter_config.json")))["base_model_name_or_path"]
+            model = AutoModelForSequenceClassification.from_pretrained(base, num_labels=2)
+            model = PeftModel.from_pretrained(model, path)
+        else:
+            model = AutoModelForSequenceClassification.from_pretrained(path)
         model.to("cuda" if torch.cuda.is_available() else "cpu").eval()
         return cls(lambda texts: predict_texts(model, tok, list(texts), emoji_mode=emoji_mode, max_len=max_len),
                    name=os.path.basename(path))
 
+    @classmethod
+    def load_textcnn(cls, path: str):
+        """Load the hybrid TextCNN saved by scripts/run_ensemble.py."""
+        import numpy as np
+        import torch
+        from .neural import TextCNN, Vocab, predict
+        ck = torch.load(path, map_location="cpu", weights_only=False)
+        vocab = Vocab(emoji_mode=ck["emoji_mode"]); vocab.itos = ck["itos"]; vocab.stoi = {t: i for i, t in enumerate(ck["itos"])}
+        model = TextCNN(len(vocab), n_dense=ck["n_dense"]); model.load_state_dict(ck["state"])
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu"); model.to(device).eval()
+        hf, mu, sd, max_len = ck["hf"], ck["mu"], ck["sd"], ck["max_len"]
+
+        def pp(texts):
+            texts = list(texts)
+            X = np.array([vocab.encode(t, max_len) for t in texts], dtype=np.int64)
+            D = ((hf.transform(texts) - mu) / sd).astype(np.float32)
+            return predict(model, X, D, device=device)
+        return cls(pp, name="TextCNN + hand-crafted")
+
+    @classmethod
+    def load_best(cls, manifest_path: Optional[str] = None):
+        """Load whatever outputs/best_model.json says is best (a single model or a weighted ensemble)."""
+        import json as _json
+        import numpy as np
+        manifest_path = manifest_path or os.path.join(ROOT, "outputs", "best_model.json")
+        man = _json.load(open(manifest_path, encoding="utf-8"))
+        base = os.path.dirname(os.path.dirname(os.path.abspath(manifest_path)))
+        parts = []
+        for m in man["members"]:
+            path = m["path"] if os.path.isabs(m["path"]) else os.path.join(base, m["path"])
+            if m["kind"] == "transformer":
+                ex = cls.load_transformer(path, emoji_mode=m.get("emoji_mode", "keep"), max_len=m.get("max_len", 96))
+            elif m["kind"] == "tfidf":
+                ex = cls.load(path)
+            elif m["kind"] == "textcnn":
+                ex = cls.load_textcnn(path)
+            else:
+                raise ValueError(m["kind"])
+            parts.append((float(m["weight"]), ex.predict_proba))
+        wsum = sum(w for w, _ in parts)
+
+        def pp(texts):
+            texts = list(texts)
+            return sum(w * np.asarray(f(texts), float) for w, f in parts) / wsum
+        obj = cls(pp, name=man["name"])
+        obj.threshold = float(man.get("threshold", 0.5))
+        obj.manifest = man
+        return obj
+
     # ------------------------------------------------------------------ explain
-    def explain(self, text: str, threshold: float = 0.5) -> Dict:
+    def explain(self, text: str, threshold: Optional[float] = None) -> Dict:
+        threshold = self.threshold if threshold is None else threshold
         p = float(self.predict_proba([text])[0])
         emojis = describe(text)
         t = normalize_urdu(text)
@@ -118,7 +178,7 @@ class SarcasmExplainer:
                 parts.append("laughter emoji with no ironic wording reads as plain humour")
         return "; ".join(parts) + "." if parts else "Decision driven by the wording; emojis are neutral here."
 
-    def explain_many(self, texts: List[str], threshold: float = 0.5):
+    def explain_many(self, texts: List[str], threshold: Optional[float] = None):
         import pandas as pd
         rows = [self.explain(t, threshold) for t in texts]
         return pd.DataFrame([{k: (", ".join(v) if isinstance(v, list) and v and isinstance(v[0], str) else v)

@@ -382,6 +382,7 @@ for emoji_mode in ['keep', 'remove']:
             r = evaluate(y_te, pred, name); r.update(threshold=thr, val_macro_f1=f_va, epochs=len(hist)); neural.append(r)
             print(f'{name:45s} epochs {len(hist):2d}  val F1 {f_va:.4f}  test macro-F1 {r["macro_f1"]:.4f}  acc {r["accuracy"]:.4f}')
             if arch == 'bilstm' and hybrid: bilstm_pred, bilstm_prob = pred, p_te
+            if arch == 'cnn' and hybrid: cnn_val_prob, cnn_test_prob = predict(model, Xn_va, D_va, device=device), p_te
 display(results_table(neural))
 fig, ax = plt.subplots(figsize=(6, 3.2))
 for n, h in hist_all.items(): ax.plot([e['val_macro_f1'] for e in h], label=n)
@@ -417,7 +418,7 @@ if RUN_TRANSFORMER:
         r = evaluate(y_te, pred, f'XLM-R base (emoji {emoji_mode})'); r.update(threshold=thr, val_macro_f1=f_va); transformer.append(r)
         print(f'XLM-R base (emoji {emoji_mode}): val F1 {f_va:.4f}  test macro-F1 {r["macro_f1"]:.4f}  acc {r["accuracy"]:.4f}  | history: {[round(h["val_macro_f1"], 4) for h in hist]}')
         if emoji_mode == 'augment':
-            xlmr_pred, xlmr_prob = pred, p_te
+            xlmr_pred, xlmr_prob, p_va_xlmr = pred, p_te, p_va
             xlmr_explainer = SarcasmExplainer(lambda texts, m=model, tk=tok: predict_texts(m, tk, list(texts), emoji_mode='augment', max_len=96), name='XLM-R (augment)')
         else:
             del model; torch.cuda.empty_cache()
@@ -426,10 +427,78 @@ else:
     print('skipped (RUN_TRANSFORMER=False)')
 """)
 
+# --------------------------------------------------------------------------- 6.5 stronger encoders + ensemble
+md("""
+## 6.5 Stronger encoders and an ensemble
+
+Three ways to push beyond XLM-R-base, all chosen for Urdu-specific reasons:
+
+* **MuRIL** (`google/muril-base-cased`, Khanuja et al. 2021) — a BERT encoder pre-trained on 17 Indian languages *including Urdu
+  and its Roman transliteration*, so it has seen far more Urdu and Roman-Urdu than XLM-R (where Urdu is <1 % of the data).
+* **mDeBERTa-v3-base** — disentangled attention + ELECTRA-style pre-training; the strongest base-size multilingual encoder on XNLI
+  (run in fp32: DeBERTa-v3 overflows under fp16/bf16 autocast).
+* **XLM-RoBERTa-large with LoRA** (Hu et al. 2022) — the 560M-parameter encoder would not fit a 6 GB GPU for full fine-tuning;
+  rank-16 adapters on the attention/FFN projections train < 1 % of the weights and fit comfortably.
+* **Ensemble** — the probability outputs of the transformers, the TF-IDF LR and the hybrid TextCNN are averaged; weights and the
+  decision threshold are fitted on the *validation* split only (non-negative least squares), then applied once to the test split.
+  Ensembling different inductive biases (sub-word encoder vs. char n-grams vs. hand-crafted cues) is the most reliable way to gain
+  a point on a noisy-label task.
+
+`RUN_EXTRA_MODELS` trains MuRIL and builds the ensemble (≈ 10 min on a T4 / RTX 4050); `RUN_LARGE_MODELS` adds mDeBERTa (fp32, ≈ 12 min)
+and XLM-R-large/LoRA (≈ 45 min). The numbers from our full run are in §7.1.
+""")
+code("""
+RUN_EXTRA_MODELS = RUN_TRANSFORMER
+RUN_LARGE_MODELS = False
+extra, val_probs, test_probs = [], {}, {}
+if RUN_EXTRA_MODELS:
+    from src.transformer import fine_tune, predict_texts
+    todo = [('google/muril-base-cased', dict(epochs=4, lr=3e-5))]
+    if RUN_LARGE_MODELS:
+        todo += [('microsoft/mdeberta-v3-base', dict(epochs=4, lr=3e-5)), ('xlm-roberta-large', dict(epochs=4, lr=2e-4, lora_r=16))]
+    for mname, kw in todo:
+        model, tok, hist, p_va = fine_tune(mname, train[TEXT], y_tr, val[TEXT], y_va, emoji_mode='keep', max_len=96, bs=16, verbose=False, **kw)
+        thr, f_va = best_threshold(y_va, p_va)
+        p_te = predict_texts(model, tok, test[TEXT], emoji_mode='keep', max_len=96)
+        r = evaluate(y_te, (p_te >= thr).astype(int), mname + (' (LoRA r=16)' if kw.get('lora_r') else '')); r.update(threshold=thr, val_macro_f1=f_va); extra.append(r)
+        val_probs[mname], test_probs[mname] = p_va, p_te
+        print(f'{r["model"]:40s} val F1 {f_va:.4f}  test macro-F1 {r["macro_f1"]:.4f}  acc {r["accuracy"]:.4f}')
+        del model; torch.cuda.empty_cache()
+    # ensemble with the earlier models (validation-weighted, threshold tuned on validation)
+    val_probs['xlmr_base'], test_probs['xlmr_base'] = p_va_xlmr, xlmr_prob
+    val_probs['tfidf_lr'], test_probs['tfidf_lr'] = predict_proba(lr_pipe, X_va), lr_prob
+    val_probs['textcnn'], test_probs['textcnn'] = cnn_val_prob, cnn_test_prob
+    from scipy.optimize import nnls
+    names = list(val_probs); PV = np.column_stack([val_probs[n] for n in names]); PT = np.column_stack([test_probs[n] for n in names])
+    w, _ = nnls(PV, y_va.astype(float)); w = w / w.sum()
+    thr, f_va = best_threshold(y_va, PV @ w)
+    r = evaluate(y_te, (PT @ w >= thr).astype(int), 'Ensemble (validation-weighted)'); r.update(threshold=thr, val_macro_f1=f_va); extra.append(r)
+    print('ensemble weights:', dict(zip(names, np.round(w, 3))))
+    print(f'Ensemble: val F1 {f_va:.4f}  test macro-F1 {r["macro_f1"]:.4f}  acc {r["accuracy"]:.4f}')
+    display(results_table(extra))
+""")
+md("""
+### 6.6 Selecting and packaging the best model
+The model that is *deployed* is chosen by **validation** Macro-F1 (never by the test score). `scripts/run_ensemble.py` writes
+`outputs/best_model.json` — a manifest listing the members, their weights and the decision threshold — and
+`SarcasmExplainer.load_best()` reconstructs it, so `app.py` (Gradio web demo / Hugging Face Space) and the CLI always serve the
+same model that the report describes. Every prediction is returned with the meaning of each emoji and the cues that fired.
+""")
+code("""
+import json
+cands = [r for r in (transformer + extra) if 'val_macro_f1' in r]
+if cands:
+    best = max(cands, key=lambda r: r['val_macro_f1'])
+    print('best by validation Macro-F1:', best['model'], '| val', round(best['val_macro_f1'], 4), '| test macro-F1', round(best['macro_f1'], 4), '| acc', round(best['accuracy'], 4))
+if os.path.exists('outputs/best_model.json'):
+    man = json.load(open('outputs/best_model.json', encoding='utf-8'))
+    print('deployed manifest:', man['name'], '->', [(m['tag'], m['weight']) for m in man['members']])
+""")
+
 # --------------------------------------------------------------------------- 8. summary
 md("## 7. Results summary (test set, Macro-F1 is the primary metric)")
 code("""
-all_results = classical + neural + transformer
+all_results = classical + neural + transformer + extra
 summary = results_table(all_results); display(summary)
 fig, axes = plt.subplots(1, 3, figsize=(11, 3.4))
 best_of = [max(g, key=lambda r: r['macro_f1']) for g in (classical, neural, transformer) if g]
@@ -440,12 +509,13 @@ plt.tight_layout(); plt.show()
 # results from our run (static)
 summary_md = "### 7.1 Numbers obtained in our run (RTX 4050 laptop GPU)\n\n"
 parts = []
-for f in ["results_classical_test.csv", "results_neural_test.csv", "results_transformer_test.csv"]:
+for f in ["results_classical_test.csv", "results_neural_test.csv", "results_transformer_test.csv", "results_ensemble_test.csv"]:
     p = os.path.join(OUT, f)
     if os.path.exists(p):
         parts.append(pd.read_csv(p))
 if parts:
     allres = pd.concat(parts).sort_values("macro_f1", ascending=False)
+    allres = allres[~allres["model"].str.startswith("Single:") & (allres["macro_f1"] > 0.5)]   # drop duplicates / failed runs
     summary_md += allres[["model", "accuracy", "precision_0", "recall_0", "f1_0", "precision_1", "recall_1", "f1_1", "macro_f1"]].round(3).to_markdown(index=False)
 md(summary_md)
 

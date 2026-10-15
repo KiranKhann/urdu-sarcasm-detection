@@ -1,0 +1,61 @@
+cuda: True | model: google/muril-base-cased | emoji: keep | tag: muril-base-cased_keep | lora: 0 | lr: 3e-05
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 15342.29it/s]
+[transformers] [1mBertForSequenceClassification LOAD REPORT[0m from: google/muril-base-cased
+Key                                        | Status     | 
+-------------------------------------------+------------+-
+cls.predictions.transform.dense.weight     | UNEXPECTED | 
+cls.seq_relationship.weight                | UNEXPECTED | 
+cls.predictions.bias                       | UNEXPECTED | 
+cls.predictions.decoder.weight             | UNEXPECTED | 
+cls.seq_relationship.bias                  | UNEXPECTED | 
+cls.predictions.transform.dense.bias       | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED | 
+cls.predictions.decoder.bias               | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED | 
+classifier.bias                            | MISSING    | 
+classifier.weight                          | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+trainable parameters: 86.0M / 237.6M
+C:\Users\kiran\NLP Sarcasm Detection\src\transformer.py:103: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:219.)
+  y_tr = torch.as_tensor(np.asarray(y_train), dtype=torch.long)
+  epoch 1 step 0/637  loss 0.6934
+  epoch 1 step 100/637  loss 0.6925
+  epoch 1 step 200/637  loss 0.6598
+  epoch 1 step 300/637  loss 0.6242
+  epoch 1 step 400/637  loss 0.5966
+  epoch 1 step 500/637  loss 0.5747
+  epoch 1 step 600/637  loss 0.5566
+[google/muril-base-cased] epoch 1  loss 0.5515  val macro-F1 0.8091  acc 0.8138  (95s)
+  epoch 2 step 0/637  loss 0.7610
+  epoch 2 step 100/637  loss 0.4235
+  epoch 2 step 200/637  loss 0.4113
+  epoch 2 step 300/637  loss 0.4095
+  epoch 2 step 400/637  loss 0.4141
+  epoch 2 step 500/637  loss 0.4145
+  epoch 2 step 600/637  loss 0.4103
+[google/muril-base-cased] epoch 2  loss 0.4111  val macro-F1 0.8204  acc 0.8243  (95s)
+  epoch 3 step 0/637  loss 0.2724
+  epoch 3 step 100/637  loss 0.3627
+  epoch 3 step 200/637  loss 0.3448
+  epoch 3 step 300/637  loss 0.3456
+  epoch 3 step 400/637  loss 0.3479
+  epoch 3 step 500/637  loss 0.3455
+  epoch 3 step 600/637  loss 0.3424
+[google/muril-base-cased] epoch 3  loss 0.3443  val macro-F1 0.8129  acc 0.8152  (95s)
+  epoch 4 step 0/637  loss 0.4791
+  epoch 4 step 100/637  loss 0.3062
+  epoch 4 step 200/637  loss 0.2950
+  epoch 4 step 300/637  loss 0.2900
+  epoch 4 step 400/637  loss 0.2893
+  epoch 4 step 500/637  loss 0.2854
+  epoch 4 step 600/637  loss 0.2873
+[google/muril-base-cased] epoch 4  loss 0.2859  val macro-F1 0.8244  acc 0.8294  (95s)
+training finished; tuning threshold
+test predictions done
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:01<00:00,  1.85s/it]Writing model shards: 100%|██████████| 1/1 [00:01<00:00,  1.88s/it]
+model saved to C:\Users\kiran\NLP Sarcasm Detection\outputs\model_muril-base-cased_keep
+==> google/muril-base-cased (emoji keep): test macro-F1 0.8132 acc 0.8170 (thr 0.38, val F1 0.8264) in 793s

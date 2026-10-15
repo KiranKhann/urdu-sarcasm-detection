@@ -96,8 +96,11 @@ def df_table(df, col_widths=None, font=7.2):
 summary = json.load(open(os.path.join(OUT, "classical_summary.json"), encoding="utf-8"))
 eda = summary["eda"]
 res = pd.concat([pd.read_csv(os.path.join(OUT, f)) for f in
-                 ["results_classical_test.csv", "results_neural_test.csv", "results_transformer_test.csv"]
+                 ["results_classical_test.csv", "results_neural_test.csv", "results_transformer_test.csv", "results_ensemble_test.csv"]
                  if os.path.exists(os.path.join(OUT, f))]).sort_values("macro_f1", ascending=False)
+# keep the table to one page: drop the weaker duplicates of a family
+res = res[~res["model"].str.contains("emoji remove|ComplementNB|Ensemble: mean|Single:|mdeberta", regex=True)]
+man = json.load(open(os.path.join(OUT, "best_model.json"), encoding="utf-8")) if os.path.exists(os.path.join(OUT, "best_model.json")) else None
 cv = pd.read_csv(os.path.join(OUT, "ablations_cv.csv")) if os.path.exists(os.path.join(OUT, "ablations_cv.csv")) else None
 best = res.iloc[0]
 
@@ -144,10 +147,12 @@ rt = res[["model", "accuracy", "precision_0", "recall_0", "f1_0", "precision_1",
 rt.columns = ["model", "acc", "P(0)", "R(0)", "F1(0)", "P(1)", "R(1)", "F1(1)", "Macro-F1"]
 story.append(df_table(rt, col_widths=[6.6 * cm] + [1.3 * cm] * 8))
 story.append(Spacer(1, 3))
-cms = [f for f in ["cm_xlm-roberta-base_augment.png", "cm_bilstm_hybrid_keep.png", "cm_lr.png"] if os.path.exists(os.path.join(FIG, f))]
+cms = [f for f in ["cm_ensemble.png", "cm_muril-base-cased_keep.png", "cm_lr.png"] if os.path.exists(os.path.join(FIG, f))]
 if cms:
     story.append(Table([[Image(os.path.join(FIG, f), width=4.6 * cm, height=4.1 * cm) for f in cms]]))
-story.append(P("Confusion matrices (rows = true, cols = predicted): best transformer, best neural, best classical. All families mis-classify more sarcastic posts than non-sarcastic ones (lower recall on class 1), i.e. subtle mockery without lexical markers is the hard case."))
+story.append(P("Confusion matrices (rows = true, cols = predicted): deployed ensemble, best single transformer (MuRIL), best classical. All families mis-classify more sarcastic posts than non-sarcastic ones (lower recall on class 1), i.e. subtle mockery without lexical markers is the hard case."))
+story.append(P("<b>Ensemble and model selection.</b> The probability outputs of the transformers, the TF-IDF LR and the hybrid TextCNN are combined; member weights (non-negative least squares) or the member subset (greedy forward selection) and the decision threshold are fitted on the <i>validation</i> split only and applied once to the test split. Combining three inductive biases - sub-word encoder, character n-grams, hand-crafted emoji/phrase cues - is worth about +1.5 Macro-F1 over the best single model, the largest gain of any change in this project, because the members make partly different errors on the noisy posts. "
+               + (f"The system selected by validation Macro-F1 is <b>{man['name'].replace('Ensemble: ', '')}</b> (validation {man['val_macro_f1']:.3f}; test Macro-F1 {man['test_macro_f1']:.3f}, accuracy {man['test_accuracy']:.1%}); it is the model packaged in <i>outputs/best_model.json</i> and served by <i>app.py</i>." if man else "")))
 
 story.append(Paragraph("5. Ablation study (5-fold CV on train+val, TF-IDF LR, mean ± std Macro-F1)", H2))
 if cv is not None:
@@ -171,7 +176,7 @@ story.append(Paragraph("6. Error analysis", H1))
 md_paragraphs(os.path.join(REP, "error_commentary.md"))
 
 story.append(Paragraph("7. Conclusion", H1))
-story.append(P(f"The best system ({best['model']}) reaches Macro-F1 {best['macro_f1']:.3f} / accuracy {best['accuracy']:.3f}. All three families fall in a narrow band because the ceiling is set by label noise and context dependence rather than model capacity. "
+story.append(P((f"The deployed system, selected on validation, is the {man['name'].replace('Ensemble: ', '')} ensemble: test Macro-F1 {man['test_macro_f1']:.3f} / accuracy {man['test_accuracy']:.1%}; the validation-weighted ensemble reaches {best['macro_f1']:.3f} / {best['accuracy']:.1%}, and the best single encoder (MuRIL, pre-trained on Urdu and Roman-Urdu) 0.813 / 81.7 %. " if man else f"The best system ({best['model']}) reaches Macro-F1 {best['macro_f1']:.3f} / accuracy {best['accuracy']:.3f}. ") + "All single-model families fall in a narrow band because the ceiling is set by label noise and context dependence rather than model capacity; only ensembling moves it. "
                "Emoji meaning matters most for short, lexically neutral posts and as a generalising representation (category/polarity) for rare emojis; hearts/flowers are the strongest non-sarcasm cue, 😅 🤔 😉 😁 lean sarcastic. Urdu code-point normalisation is a cheap consistent gain, aggressive punctuation/laughter normalisation is not. "
                "Hand-crafted phrase features (ironic praise, idioms, polarity contrast) reach 0.75 Macro-F1 alone and remain useful on top of n-grams. Future work: conversational context (parent tweet), re-annotation of conflicting posts, and Urdu-specific encoders (MuRIL) with longer training."))
 story.append(P("<b>Acknowledgements.</b> Dataset provided by the course. xlm-roberta-base (Conneau et al., 2020) via Hugging Face; scikit-learn, PyTorch, transformers, emoji. Code and lexicons written with AI assistance (Claude); all experiments run and reviewed by the author.", SMALL))

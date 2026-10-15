@@ -33,11 +33,28 @@ with explicit modelling of **emoji meaning** (the dataset has emojis in 83 % of 
 pip install -r requirements.txt
 python scripts/run_classical.py
 python scripts/run_neural.py
-python scripts/run_transformer.py xlm-roberta-base augment 3  # emoji + its Urdu meaning (default)
-python scripts/run_transformer.py xlm-roberta-base keep 3     # raw emoji only
-python scripts/run_transformer.py xlm-roberta-base urdu 3     # emoji replaced by Urdu meaning
+python scripts/run_transformer.py xlm-roberta-base keep 3                       # raw emoji
+python scripts/run_transformer.py xlm-roberta-base augment 3                    # emoji + its Urdu meaning
+python scripts/run_transformer.py google/muril-base-cased keep 4 96 16 --lr 3e-5 # Urdu-specialised encoder
+python scripts/run_transformer.py xlm-roberta-large keep 4 96 16 --lora 16 --lr 2e-4
 python scripts/run_cv_ablation.py
+python scripts/run_ensemble.py        # validation-weighted ensemble -> outputs/best_model.json
+python scripts/build_report.py        # PDF report
+python scripts/make_submission.py     # submission/ + submission.zip
 ```
+
+## Try the best model
+
+```bash
+python app.py                                   # Gradio web demo at http://127.0.0.1:7860
+python app.py --cli "واہ خان صاحب کیا بات ہے تبدیلی آ گئی 😂😂🙄"
+```
+
+`app.py` loads whatever `outputs/best_model.json` names (selected by validation Macro-F1). The transformer
+checkpoints are not in git (≈ 1 GB each): download them from the
+[Releases](https://github.com/KiranKhann/urdu-sarcasm-detection/releases) page and unzip into `outputs/`,
+or regenerate them with `scripts/run_transformer.py`. Without them the app falls back to the saved TF-IDF model.
+The same file is a ready-made Hugging Face Space (Gradio SDK) entry point.
 
 Or open `notebooks/Urdu_Sarcasm_Detection.ipynb` in Google Colab (GPU runtime), upload the CSV
 when prompted and run all cells.

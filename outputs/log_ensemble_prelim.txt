@@ -1,0 +1,19 @@
+  member mdeberta-v3-base_keep                    SKIPPED (degenerate: NaN or validation macro-F1 < 0.6)
+  member muril-base-cased_keep                    test macro-F1 0.8132  acc 0.8170
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights:   2%|▏         | 5/201 [00:00<00:04, 46.80it/s]Loading weights:  14%|█▍        | 28/201 [00:00<00:01, 145.93it/s]Loading weights:  21%|██▏       | 43/201 [00:00<00:01, 145.61it/s]Loading weights:  29%|██▉       | 58/201 [00:00<00:01, 117.08it/s]Loading weights:  38%|███▊      | 77/201 [00:00<00:00, 136.52it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 304.59it/s]
+  member xlm-roberta-base_augment                 test macro-F1 0.8062  acc 0.8111
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights:   0%|          | 1/201 [00:00<00:37,  5.40it/s]Loading weights:   3%|▎         | 7/201 [00:00<00:07, 27.53it/s]Loading weights:   9%|▉         | 18/201 [00:00<00:03, 56.28it/s]Loading weights:  22%|██▏       | 44/201 [00:00<00:01, 113.98it/s]Loading weights:  28%|██▊       | 56/201 [00:00<00:01, 115.42it/s]Loading weights:  44%|████▍     | 89/201 [00:00<00:00, 180.45it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 267.95it/s]
+  member xlm-roberta-base_keep                    test macro-F1 0.8107  acc 0.8138
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights:   3%|▎         | 7/201 [00:00<00:02, 65.72it/s]Loading weights:   8%|▊         | 16/201 [00:00<00:02, 79.06it/s]Loading weights:  13%|█▎        | 26/201 [00:00<00:01, 87.99it/s]Loading weights:  17%|█▋        | 35/201 [00:00<00:01, 84.92it/s]Loading weights:  24%|██▍       | 49/201 [00:00<00:01, 96.22it/s]Loading weights:  29%|██▉       | 59/201 [00:00<00:02, 65.89it/s]Loading weights:  34%|███▍      | 68/201 [00:00<00:01, 70.76it/s]Loading weights:  38%|███▊      | 76/201 [00:01<00:01, 69.79it/s]Loading weights: 100%|██████████| 201/201 [00:01<00:00, 193.42it/s]
+  member xlm-roberta-base_urdu                    test macro-F1 0.8094  acc 0.8170
+  member tfidf_lr                                 test macro-F1 0.8080  acc 0.8156
+  member textcnn_hybrid                           test macro-F1 0.7987  acc 0.8038
+
+=== ensembles ===
+Ensemble: mean of all members                           val F1 0.8322  test macro-F1 0.8231  acc 0.8275
+Ensemble: mean of transformers                          val F1 0.8337  test macro-F1 0.8184  acc 0.8253
+Ensemble: validation-weighted (NNLS)                    val F1 0.8330  test macro-F1 0.8271  acc 0.8330
+weights: {'muril-base-cased_keep': np.float64(0.304), 'xlm-roberta-base_augment': np.float64(0.05), 'xlm-roberta-base_keep': np.float64(0.259), 'xlm-roberta-base_urdu': np.float64(0.0), 'tfidf_lr': np.float64(0.22), 'textcnn_hybrid': np.float64(0.168)}
+Ensemble: greedy-selected on validation (muril-base-cased_keep + textcnn_hybrid + xlm-roberta-base_augment) val F1 0.8369  test macro-F1 0.8238  acc 0.8303
+
+best by validation: Ensemble: greedy-selected on validation (muril-base-cased_keep + textcnn_hybrid + xlm-roberta-base_augment)  ->  test macro-F1 0.8238  acc 0.8303

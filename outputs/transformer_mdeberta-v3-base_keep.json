@@ -1,0 +1,62 @@
+{
+ "test": {
+  "model": "microsoft/mdeberta-v3-base (emoji keep)",
+  "accuracy": 0.5946935041171089,
+  "precision_0": 0.5946935041171089,
+  "recall_0": 1.0,
+  "f1_0": 0.7458405048766494,
+  "precision_1": 0.0,
+  "recall_1": 0.0,
+  "f1_1": 0.0,
+  "macro_f1": 0.3729202524383247,
+  "support_0": 1300,
+  "support_1": 886,
+  "tn": 1300,
+  "fp": 0,
+  "fn": 886,
+  "tp": 0,
+  "threshold": 0.2,
+  "val_macro_f1": 0.3729202524383247,
+  "epochs": 3,
+  "emoji_mode": "keep",
+  "model_name": "microsoft/mdeberta-v3-base",
+  "tag": "mdeberta-v3-base_keep"
+ },
+ "history": [
+  {
+   "epoch": 1,
+   "train_loss": NaN,
+   "val_macro_f1": 0.3729202524383247,
+   "val_acc": 0.5946935041171089,
+   "time_s": 104
+  },
+  {
+   "epoch": 2,
+   "train_loss": NaN,
+   "val_macro_f1": 0.3729202524383247,
+   "val_acc": 0.5946935041171089,
+   "time_s": 103
+  },
+  {
+   "epoch": 3,
+   "train_loss": NaN,
+   "val_macro_f1": 0.3729202524383247,
+   "val_acc": 0.5946935041171089,
+   "time_s": 103
+  }
+ ],
+ "args": {
+  "model": "microsoft/mdeberta-v3-base",
+  "emoji_mode": "keep",
+  "epochs": 4,
+  "max_len": 96,
+  "bs": 16,
+  "lora": 0,
+  "lr": 3e-05,
+  "smooth": 0.0,
+  "accum": 1,
+  "no_freeze": false,
+  "tag": null
+ },
+ "elapsed_s": 592
+}

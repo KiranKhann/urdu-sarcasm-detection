@@ -1,0 +1,60 @@
+cuda: True | model: microsoft/mdeberta-v3-base | emoji: keep | tag: mdeberta-v3-base_keep | lora: 0 | lr: 3e-05
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+C:\Users\kiran\AppData\Roaming\Python\Python314\site-packages\torch\jit\_script.py:1485: FutureWarning: `torch.jit.script` is not supported in Python 3.14+ and may break. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Loading weights:   0%|          | 0/198 [00:00<?, ?it/s]Loading weights: 100%|██████████| 198/198 [00:00<00:00, 12190.06it/s]
+[transformers] [1mDebertaV2ForSequenceClassification LOAD REPORT[0m from: microsoft/mdeberta-v3-base
+Key                                        | Status     | 
+-------------------------------------------+------------+-
+lm_predictions.lm_head.LayerNorm.bias      | UNEXPECTED | 
+lm_predictions.lm_head.LayerNorm.weight    | UNEXPECTED | 
+lm_predictions.lm_head.dense.weight        | UNEXPECTED | 
+mask_predictions.dense.weight              | UNEXPECTED | 
+deberta.embeddings.word_embeddings._weight | UNEXPECTED | 
+lm_predictions.lm_head.bias                | UNEXPECTED | 
+lm_predictions.lm_head.dense.bias          | UNEXPECTED | 
+mask_predictions.dense.bias                | UNEXPECTED | 
+mask_predictions.classifier.weight         | UNEXPECTED | 
+mask_predictions.LayerNorm.weight          | UNEXPECTED | 
+mask_predictions.classifier.bias           | UNEXPECTED | 
+mask_predictions.LayerNorm.bias            | UNEXPECTED | 
+pooler.dense.bias                          | MISSING    | 
+classifier.bias                            | MISSING    | 
+pooler.dense.weight                        | MISSING    | 
+classifier.weight                          | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+trainable parameters: 86.0M / 278.8M
+C:\Users\kiran\NLP Sarcasm Detection\src\transformer.py:103: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:219.)
+  y_tr = torch.as_tensor(np.asarray(y_train), dtype=torch.long)
+  epoch 1 step 0/637  loss 0.6871
+  epoch 1 step 100/637  loss nan
+  epoch 1 step 200/637  loss nan
+  epoch 1 step 300/637  loss nan
+  epoch 1 step 400/637  loss nan
+  epoch 1 step 500/637  loss nan
+  epoch 1 step 600/637  loss nan
+[microsoft/mdeberta-v3-base] epoch 1  loss nan  val macro-F1 0.3729  acc 0.5947  (104s)
+  epoch 2 step 0/637  loss nan
+  epoch 2 step 100/637  loss nan
+  epoch 2 step 200/637  loss nan
+  epoch 2 step 300/637  loss nan
+  epoch 2 step 400/637  loss nan
+  epoch 2 step 500/637  loss nan
+  epoch 2 step 600/637  loss nan
+[microsoft/mdeberta-v3-base] epoch 2  loss nan  val macro-F1 0.3729  acc 0.5947  (103s)
+  epoch 3 step 0/637  loss nan
+  epoch 3 step 100/637  loss nan
+  epoch 3 step 200/637  loss nan
+  epoch 3 step 300/637  loss nan
+  epoch 3 step 400/637  loss nan
+  epoch 3 step 500/637  loss nan
+  epoch 3 step 600/637  loss nan
+[microsoft/mdeberta-v3-base] epoch 3  loss nan  val macro-F1 0.3729  acc 0.5947  (103s)
+training finished; tuning threshold
+test predictions done
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  1.16it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  1.16it/s]
+model saved to C:\Users\kiran\NLP Sarcasm Detection\outputs\model_mdeberta-v3-base_keep
+==> microsoft/mdeberta-v3-base (emoji keep): test macro-F1 0.3729 acc 0.5947 (thr 0.20, val F1 0.3729) in 593s
