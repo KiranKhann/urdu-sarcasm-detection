@@ -3,6 +3,7 @@
   member xlm-roberta-base_augment                 test macro-F1 0.8062  acc 0.8111
   member xlm-roberta-base_keep                    test macro-F1 0.8107  acc 0.8138
   member xlm-roberta-base_urdu                    test macro-F1 0.8094  acc 0.8170
+  member xlm-roberta-large_keep_lora16            test macro-F1 0.8221  acc 0.8271
   member tfidf_lr                                 test macro-F1 0.8080  acc 0.8156
   member textcnn_hybrid                           test macro-F1 0.7987  acc 0.8038
 
@@ -11,15 +12,16 @@ Single: muril-base-cased_keep                                val F1 0.8264  test
 Single: xlm-roberta-base_augment                             val F1 0.8211  test macro-F1 0.8062  acc 0.8111
 Single: xlm-roberta-base_keep                                val F1 0.8178  test macro-F1 0.8107  acc 0.8138
 Single: xlm-roberta-base_urdu                                val F1 0.8156  test macro-F1 0.8094  acc 0.8170
+Single: xlm-roberta-large_keep_lora16                        val F1 0.8281  test macro-F1 0.8221  acc 0.8271
 Single: tfidf_lr                                             val F1 0.8111  test macro-F1 0.8080  acc 0.8156
 Single: textcnn_hybrid                                       val F1 0.8048  test macro-F1 0.7987  acc 0.8038
 
 === ensembles ===
-Ensemble: mean of all members                                val F1 0.8322  test macro-F1 0.8231  acc 0.8275
-Ensemble: mean of transformers                               val F1 0.8337  test macro-F1 0.8184  acc 0.8253
-Ensemble: validation-weighted (NNLS)                         val F1 0.8330  test macro-F1 0.8271  acc 0.8330
-Ensemble: greedy-selected (muril-base-cased_keep + textcnn_hybrid + xlm-roberta-base_augment) val F1 0.8369  test macro-F1 0.8238  acc 0.8303
-Ensemble: deployable (muril-base-cased_keep + tfidf_lr + textcnn_hybrid) val F1 0.8336  test macro-F1 0.8234  acc 0.8289
+Ensemble: mean of all members                                val F1 0.8327  test macro-F1 0.8238  acc 0.8285
+Ensemble: mean of transformers                               val F1 0.8362  test macro-F1 0.8222  acc 0.8280
+Ensemble: validation-weighted (NNLS)                         val F1 0.8366  test macro-F1 0.8285  acc 0.8344
+Ensemble: greedy-selected (xlm-roberta-large_keep_lora16 + muril-base-cased_keep + textcnn_hybrid) val F1 0.8385  test macro-F1 0.8260  acc 0.8326
+Ensemble: deployable (xlm-roberta-large_keep_lora16 + tfidf_lr + textcnn_hybrid) val F1 0.8279  test macro-F1 0.8262  acc 0.8312
 
-best by validation: Ensemble: greedy-selected (muril-base-cased_keep + textcnn_hybrid + xlm-roberta-base_augment)  ->  test macro-F1 0.8238  acc 0.8303
-manifest written: outputs/best_model.json -> [('muril-base-cased_keep', 0.3333), ('xlm-roberta-base_augment', 0.3333), ('textcnn_hybrid', 0.3333)]
+best by validation: Ensemble: greedy-selected (xlm-roberta-large_keep_lora16 + muril-base-cased_keep + textcnn_hybrid)  ->  test macro-F1 0.8260  acc 0.8326
+manifest written: outputs/best_model.json -> [('muril-base-cased_keep', 0.3333), ('xlm-roberta-large_keep_lora16', 0.3333), ('textcnn_hybrid', 0.3333)]

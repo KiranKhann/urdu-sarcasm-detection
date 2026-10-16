@@ -28,8 +28,10 @@ for d in ["results", "results/figures", "models", "src", "scripts", "data"]:
 shutil.copy(NB, os.path.join(SUB, "Urdu_Sarcasm_Detection.ipynb"))
 shutil.copy(os.path.join(ROOT, "report", "Urdu_Sarcasm_Report.pdf"), SUB)
 for fmt in ["script", "html"]:
-    subprocess.check_call([sys.executable, "-m", "nbconvert", "--to", fmt, "--output-dir", SUB, NB],
-                          stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.check_call([sys.executable, "-m", "nbconvert", "--to", fmt, "--output-dir", SUB, NB], stdout=subprocess.DEVNULL)
+txt = os.path.join(SUB, "Urdu_Sarcasm_Detection.txt")      # nbconvert uses .txt when language metadata is missing
+if os.path.exists(txt):
+    os.replace(txt, os.path.join(SUB, "Urdu_Sarcasm_Detection.py"))
 # make the exported script plain Python: the %%writefile cells are redundant (src/ is shipped next to it)
 # and display() is a Jupyter builtin
 import re

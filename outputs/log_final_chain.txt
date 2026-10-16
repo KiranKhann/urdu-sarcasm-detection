@@ -1,0 +1,25 @@
+large done: ==> xlm-roberta-large (emoji keep, LoRA r=16): test macro-F1 0.8221 acc 0.8271 (thr 0.68, val F1 0.8281) in 1270s
+mdeberta done: ==> microsoft/mdeberta-v3-base ABORTED: loss diverged to NaN (fp16, bf16 and fp32 all tried); excluded from results
+Single: muril-base-cased_keep                                val F1 0.8264  test macro-F1 0.8132  acc 0.8170
+Single: xlm-roberta-base_augment                             val F1 0.8211  test macro-F1 0.8062  acc 0.8111
+Single: xlm-roberta-base_keep                                val F1 0.8178  test macro-F1 0.8107  acc 0.8138
+Single: xlm-roberta-base_urdu                                val F1 0.8156  test macro-F1 0.8094  acc 0.8170
+Single: xlm-roberta-large_keep_lora16                        val F1 0.8281  test macro-F1 0.8221  acc 0.8271
+Single: tfidf_lr                                             val F1 0.8111  test macro-F1 0.8080  acc 0.8156
+Single: textcnn_hybrid                                       val F1 0.8048  test macro-F1 0.7987  acc 0.8038
+Ensemble: mean of all members                                val F1 0.8327  test macro-F1 0.8238  acc 0.8285
+Ensemble: mean of transformers                               val F1 0.8362  test macro-F1 0.8222  acc 0.8280
+Ensemble: validation-weighted (NNLS)                         val F1 0.8366  test macro-F1 0.8285  acc 0.8344
+Ensemble: greedy-selected (xlm-roberta-large_keep_lora16 + muril-base-cased_keep + textcnn_hybrid) val F1 0.8385  test macro-F1 0.8260  acc 0.8326
+Ensemble: deployable (xlm-roberta-large_keep_lora16 + tfidf_lr + textcnn_hybrid) val F1 0.8279  test macro-F1 0.8262  acc 0.8312
+best by validation: Ensemble: greedy-selected (xlm-roberta-large_keep_lora16 + muril-base-cased_keep + textcnn_hybrid)  ->  test macro-F1 0.8260  acc 0.8326
+manifest written: outputs/best_model.json -> [('muril-base-cased_keep', 0.3333), ('xlm-roberta-large_keep_lora16', 0.3333), ('textcnn_hybrid', 0.3333)]
+wrote C:\Users\kiran\NLP Sarcasm Detection\report\Urdu_Sarcasm_Report.pdf
+wrote C:\Users\kiran\NLP Sarcasm Detection\notebooks\Urdu_Sarcasm_Detection.ipynb with 65 cells
+-------------------
+
+Traceback (most recent call last):
+  File "C:\Users\kiran\NLP Sarcasm Detection\scripts\make_submission.py", line 37, in <module>
+    lines = open(spath, encoding="utf-8").read().split("\n")
+            ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\kiran\\NLP Sarcasm Detection\\submission\\Urdu_Sarcasm_Detection.py'

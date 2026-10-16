@@ -103,6 +103,7 @@ res = res[~res["model"].str.contains("emoji remove|ComplementNB|Ensemble: mean|S
 man = json.load(open(os.path.join(OUT, "best_model.json"), encoding="utf-8")) if os.path.exists(os.path.join(OUT, "best_model.json")) else None
 cv = pd.read_csv(os.path.join(OUT, "ablations_cv.csv")) if os.path.exists(os.path.join(OUT, "ablations_cv.csv")) else None
 best = res.iloc[0]
+single = res[~res["model"].str.startswith("Ensemble")].iloc[0]
 
 story = []
 story.append(Paragraph("Urdu Sarcasm Detection with Emoji Semantics", TITLE))
@@ -129,7 +130,7 @@ story.append(P("<b>Normalisation</b> (src/preprocessing.py) is conservative and 
                "diacritic removal; whole-word keyboard fixes (ھے→ہے, ھیں→ہیں, کوئ→کوئی — ھ is a real letter in تھا so only listed words are changed); URL→URL, @user→@USER; hashtag reconstruction "
                "(ووٹ_کو_عزت_دو → HASHTAG ووٹ کو عزت دو); laughter (ہاہاہاہا, hahaha, lol→LAUGH) and elongation (کدووووو→کدوو) normalisation; Urdu punctuation mapped to ASCII but <b>kept</b> as tokens because rhetorical ؟؟؟ and … are cues. "
                "Roman/English and Punjabi tokens are kept. Tokenisation is regex-based (Urdu word runs, Latin words, numbers, punctuation runs, single emojis). Emojis are extracted before normalisation because the zero-width joiner we strip from Urdu text is part of emoji sequences (🤦‍♂️)."))
-story.append(P("<b>Emoji semantics</b> (src/emoji_semantics.py). A curated lexicon of ~150 emojis gives each an English name, an <b>Urdu gloss</b> (😂 ہنسی کے آنسو, 🙄 آنکھیں گھمانا, 💔 ٹوٹا دل), a polarity (+/0/−), a pragmatic category "
+story.append(P("<b>Emoji semantics</b> (src/emoji_semantics.py). A curated lexicon of 185 emojis gives each an English name, an <b>Urdu gloss</b> (😂 ہنسی کے آنسو, 🙄 آنکھیں گھمانا, 💔 ٹوٹا دل), a polarity (+/0/−), a pragmatic category "
                "(LAUGH, TEASE, SMIRK, THINK, LOVE, SAD, ANGER, PRAYER, PRAISE, FLOWER, SHY, GESTURE, INSULT) and an <i>irony-cue</i> flag (😏 🙄 😜 😅 🤔 …). Skin tones and variation selectors are canonicalised (❤️=❤, ✌🏻=✌). The lexicon drives: "
                "(i) seven representations tested in the ablation — remove, keep raw, meaning token (EMO_face_with_tears_of_joy), category token (EMOCAT_LAUGH), meaning+category+polarity+cue, Urdu gloss (😂 → ہنسی کے آنسو), and <b>augment</b> (😂 → 😂 ہنسی کے آنسو: the symbol as used <i>plus</i> its meaning in the language of the post — the default input of the transformer); "
                "(ii) 27 dense emoji features: counts per category, polarity mix, position (start/middle/end), longest repeat run (😂😂😂😂), laughter-only; (iii) a data-driven emoji sarcasm prior (log-odds per emoji, fitted on the training split only); "
@@ -140,17 +141,22 @@ story.append(P("<b>Hand-crafted Urdu phrase features</b> (bonus, src/features.py
 story.append(Paragraph("3. Models and experiments", H1))
 story.append(P("<b>Classical:</b> TF-IDF word uni/bi-grams + character 2–5-grams (within word boundaries; robust to spelling variation and suffix morphology) + the standardised hand-crafted block, with Logistic Regression (liblinear, class-balanced), a calibrated Linear SVM and Complement NB; C tuned on validation. "
                "<b>Neural (PyTorch):</b> TextCNN (200-d embeddings learnt from scratch, filter widths 2–5 × 128, max-pooling) and BiLSTM (128/direction) + additive attention + max pooling; hybrid variants concatenate the hand-crafted vector; Adam, class-weighted CE, dropout 0.5, early stopping on validation Macro-F1, threshold tuned on validation; every emoji is one token so emoji sequences are visible. "
-               "<b>Transformer:</b> xlm-roberta-base (pre-trained on 100 languages incl. Urdu) fine-tuned with the 250k×768 word-embedding matrix frozen (192M of 278M parameters — fits a 6 GB GPU and regularises on 10k examples; all 12 encoder layers and the head are trained; AdamW 2e-5, warm-up, class-weighted loss, fp16, max 96 sub-words, 3 epochs, early stopping, threshold tuned on validation), with three emoji inputs: symbol + Urdu meaning (augment), raw symbol, Urdu meaning only. Macro-F1 is the primary comparison metric."))
+               "<b>Transformer:</b> xlm-roberta-base (pre-trained on 100 languages incl. Urdu) fine-tuned with the 250k×768 word-embedding matrix frozen (192M of 278M parameters — fits a 6 GB GPU and regularises on 10k examples; all 12 encoder layers and the head are trained; AdamW 2e-5, warm-up, class-weighted loss, fp16, max 96 sub-words, 3 epochs, early stopping, threshold tuned on validation), with three emoji inputs: symbol + Urdu meaning (augment), raw symbol, Urdu meaning only. Stronger encoders: <b>MuRIL</b> (google/muril-base-cased, pre-trained on 17 Indian languages including Urdu and Roman-Urdu), XLM-R-large fitted into 6 GB with rank-16 <b>LoRA</b> adapters (Hu et al. 2022) — the best single model — and mDeBERTa-v3-base, whose loss diverged to NaN in our environment (fp16, bf16 and fp32) and which is therefore excluded; then a probability <b>ensemble</b> of the encoders, the TF-IDF LR and the hybrid TextCNN. Macro-F1 is the primary comparison metric."))
 
 story.append(Paragraph("4. Results (test split, n = 2 186)", H1))
 rt = res[["model", "accuracy", "precision_0", "recall_0", "f1_0", "precision_1", "recall_1", "f1_1", "macro_f1"]].round(3)
 rt.columns = ["model", "acc", "P(0)", "R(0)", "F1(0)", "P(1)", "R(1)", "F1(1)", "Macro-F1"]
 story.append(df_table(rt, col_widths=[6.6 * cm] + [1.3 * cm] * 8))
 story.append(Spacer(1, 3))
-cms = [f for f in ["cm_ensemble.png", "cm_muril-base-cased_keep.png", "cm_lr.png"] if os.path.exists(os.path.join(FIG, f))]
+import glob as _glob
+tag_of = {}
+for jf in _glob.glob(os.path.join(OUT, "transformer_*.json")):
+    j = json.load(open(jf, encoding="utf-8"))["test"]
+    tag_of[j["model"]] = j.get("tag") or os.path.basename(jf)[len("transformer_"):-5]
+cms = [f for f in ["cm_ensemble.png", "cm_" + tag_of.get(single["model"], "muril-base-cased_keep") + ".png", "cm_lr.png"] if os.path.exists(os.path.join(FIG, f))]
 if cms:
     story.append(Table([[Image(os.path.join(FIG, f), width=4.6 * cm, height=4.1 * cm) for f in cms]]))
-story.append(P("Confusion matrices (rows = true, cols = predicted): deployed ensemble, best single transformer (MuRIL), best classical. All families mis-classify more sarcastic posts than non-sarcastic ones (lower recall on class 1), i.e. subtle mockery without lexical markers is the hard case."))
+story.append(P("Confusion matrices (rows = true, cols = predicted): deployed ensemble, best single transformer, best classical. All families mis-classify more sarcastic posts than non-sarcastic ones (lower recall on class 1), i.e. subtle mockery without lexical markers is the hard case."))
 story.append(P("<b>Ensemble and model selection.</b> The probability outputs of the transformers, the TF-IDF LR and the hybrid TextCNN are combined; member weights (non-negative least squares) or the member subset (greedy forward selection) and the decision threshold are fitted on the <i>validation</i> split only and applied once to the test split. Combining three inductive biases - sub-word encoder, character n-grams, hand-crafted emoji/phrase cues - is worth about +1.5 Macro-F1 over the best single model, the largest gain of any change in this project, because the members make partly different errors on the noisy posts. "
                + (f"The system selected by validation Macro-F1 is <b>{man['name'].replace('Ensemble: ', '')}</b> (validation {man['val_macro_f1']:.3f}; test Macro-F1 {man['test_macro_f1']:.3f}, accuracy {man['test_accuracy']:.1%}); it is the model packaged in <i>outputs/best_model.json</i> and served by <i>app.py</i>." if man else "")))
 
@@ -176,7 +182,7 @@ story.append(Paragraph("6. Error analysis", H1))
 md_paragraphs(os.path.join(REP, "error_commentary.md"))
 
 story.append(Paragraph("7. Conclusion", H1))
-story.append(P((f"The deployed system, selected on validation, is the {man['name'].replace('Ensemble: ', '')} ensemble: test Macro-F1 {man['test_macro_f1']:.3f} / accuracy {man['test_accuracy']:.1%}; the validation-weighted ensemble reaches {best['macro_f1']:.3f} / {best['accuracy']:.1%}, and the best single encoder (MuRIL, pre-trained on Urdu and Roman-Urdu) 0.813 / 81.7 %. " if man else f"The best system ({best['model']}) reaches Macro-F1 {best['macro_f1']:.3f} / accuracy {best['accuracy']:.3f}. ") + "All single-model families fall in a narrow band because the ceiling is set by label noise and context dependence rather than model capacity; only ensembling moves it. "
+story.append(P((f"The deployed system, selected on validation, is the {man['name'].replace('Ensemble: ', '')} ensemble: test Macro-F1 {man['test_macro_f1']:.3f} / accuracy {man['test_accuracy']:.1%}; the validation-weighted ensemble reaches {best['macro_f1']:.3f} / {best['accuracy']:.1%}, and the best single encoder ({single['model']}) {single['macro_f1']:.3f} / {single['accuracy']:.1%}. " if man else f"The best system ({best['model']}) reaches Macro-F1 {best['macro_f1']:.3f} / accuracy {best['accuracy']:.3f}. ") + "All single-model families fall in a narrow band because the ceiling is set by label noise and context dependence rather than model capacity; only ensembling moves it. "
                "Emoji meaning matters most for short, lexically neutral posts and as a generalising representation (category/polarity) for rare emojis; hearts/flowers are the strongest non-sarcasm cue, 😅 🤔 😉 😁 lean sarcastic. Urdu code-point normalisation is a cheap consistent gain, aggressive punctuation/laughter normalisation is not. "
                "Hand-crafted phrase features (ironic praise, idioms, polarity contrast) reach 0.75 Macro-F1 alone and remain useful on top of n-grams. Future work: conversational context (parent tweet), re-annotation of conflicting posts, and Urdu-specific encoders (MuRIL) with longer training."))
 story.append(P("<b>Acknowledgements.</b> Dataset provided by the course. xlm-roberta-base (Conneau et al., 2020) via Hugging Face; scikit-learn, PyTorch, transformers, emoji. Code and lexicons written with AI assistance (Claude); all experiments run and reviewed by the author.", SMALL))

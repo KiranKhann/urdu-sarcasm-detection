@@ -27,3 +27,58 @@ C:\Users\kiran\NLP Sarcasm Detection\src\transformer.py:109: UserWarning: The gi
   epoch 1 step 300/1274  loss 0.6426
   epoch 1 step 400/1274  loss 0.6021
   epoch 1 step 500/1274  loss 0.5890
+  epoch 1 step 600/1274  loss 0.5767
+  epoch 1 step 700/1274  loss 0.5670
+  epoch 1 step 800/1274  loss 0.5523
+  epoch 1 step 900/1274  loss 0.5420
+  epoch 1 step 1000/1274  loss 0.5267
+  epoch 1 step 1100/1274  loss 0.5230
+  epoch 1 step 1200/1274  loss 0.5148
+[xlm-roberta-large] epoch 1  loss 0.5110  val macro-F1 0.7734  acc 0.7736  (389s)
+  epoch 2 step 0/1274  loss 0.6252
+  epoch 2 step 100/1274  loss 0.4049
+  epoch 2 step 200/1274  loss 0.4099
+  epoch 2 step 300/1274  loss 0.4218
+  epoch 2 step 400/1274  loss 0.4235
+  epoch 2 step 500/1274  loss 0.4248
+  epoch 2 step 600/1274  loss 0.4239
+  epoch 2 step 700/1274  loss 0.4258
+  epoch 2 step 800/1274  loss 0.4239
+  epoch 2 step 900/1274  loss 0.4242
+  epoch 2 step 1000/1274  loss 0.4239
+  epoch 2 step 1100/1274  loss 0.4241
+  epoch 2 step 1200/1274  loss 0.4216
+[xlm-roberta-large] epoch 2  loss 0.4201  val macro-F1 0.8101  acc 0.8120  (213s)
+  epoch 3 step 0/1274  loss 0.2196
+  epoch 3 step 100/1274  loss 0.3692
+  epoch 3 step 200/1274  loss 0.3544
+  epoch 3 step 300/1274  loss 0.3619
+  epoch 3 step 400/1274  loss 0.3657
+  epoch 3 step 500/1274  loss 0.3721
+  epoch 3 step 600/1274  loss 0.3710
+  epoch 3 step 700/1274  loss 0.3704
+  epoch 3 step 800/1274  loss 0.3678
+  epoch 3 step 900/1274  loss 0.3694
+  epoch 3 step 1000/1274  loss 0.3721
+  epoch 3 step 1100/1274  loss 0.3677
+  epoch 3 step 1200/1274  loss 0.3680
+[xlm-roberta-large] epoch 3  loss 0.3653  val macro-F1 0.8218  acc 0.8257  (306s)
+  epoch 4 step 0/1274  loss 0.3883
+  epoch 4 step 100/1274  loss 0.3534
+  epoch 4 step 200/1274  loss 0.3253
+  epoch 4 step 300/1274  loss 0.3335
+  epoch 4 step 400/1274  loss 0.3359
+  epoch 4 step 500/1274  loss 0.3310
+  epoch 4 step 600/1274  loss 0.3237
+  epoch 4 step 700/1274  loss 0.3258
+  epoch 4 step 800/1274  loss 0.3231
+  epoch 4 step 900/1274  loss 0.3210
+  epoch 4 step 1000/1274  loss 0.3184
+  epoch 4 step 1100/1274  loss 0.3206
+  epoch 4 step 1200/1274  loss 0.3178
+[xlm-roberta-large] epoch 4  loss 0.3178  val macro-F1 0.8217  acc 0.8248  (289s)
+training finished; tuning threshold
+test predictions done
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+model saved to C:\Users\kiran\NLP Sarcasm Detection\outputs\model_xlm-roberta-large_keep_lora16
+==> xlm-roberta-large (emoji keep, LoRA r=16): test macro-F1 0.8221 acc 0.8271 (thr 0.68, val F1 0.8281) in 1270s

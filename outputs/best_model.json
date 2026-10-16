@@ -1,10 +1,10 @@
 {
- "name": "Ensemble: greedy-selected (muril-base-cased_keep + textcnn_hybrid + xlm-roberta-base_augment)",
+ "name": "Ensemble: greedy-selected (xlm-roberta-large_keep_lora16 + muril-base-cased_keep + textcnn_hybrid)",
  "selected_by": "validation macro-F1",
- "val_macro_f1": 0.836878059113557,
- "test_macro_f1": 0.8238105945316514,
- "test_accuracy": 0.8302836230558097,
- "threshold": 0.5999999999999999,
+ "val_macro_f1": 0.8385082788868378,
+ "test_macro_f1": 0.8260258066199591,
+ "test_accuracy": 0.8325709057639524,
+ "threshold": 0.6399999999999998,
  "members": [
   {
    "tag": "muril-base-cased_keep",
@@ -15,10 +15,10 @@
    "weight": 0.3333
   },
   {
-   "tag": "xlm-roberta-base_augment",
+   "tag": "xlm-roberta-large_keep_lora16",
    "kind": "transformer",
-   "path": "outputs/model_xlm-roberta-base_augment",
-   "emoji_mode": "augment",
+   "path": "outputs/model_xlm-roberta-large_keep_lora16",
+   "emoji_mode": "keep",
    "max_len": 96,
    "weight": 0.3333
   },

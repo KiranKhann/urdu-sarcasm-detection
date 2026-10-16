@@ -1,8 +1,45 @@
-[NbConvertApp] Converting notebook Urdu_Sarcasm_Detection.ipynb to notebook
 C:\Users\kiran\AppData\Roaming\Python\Python314\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
   self._get_loop()
 [IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[      2s] cell  2 start : import sys, subprocess, importlib
 
 [notice] A new release of pip is available: 26.1.2 -> 26.2.1
 [notice] To update, run: python.exe -m pip install --upgrade pip
-[NbConvertApp] Writing 503357 bytes to Urdu_Sarcasm_Detection.ipynb
+[      5s] cell  2 done  (3s)
+[      5s] cell  4 start : DATA_PATH = None
+[      5s] cell  4 done  (0s)
+[      5s] cell  6 start : %%writefile src/__init__.py
+[      5s] cell  6 done  (0s)
+[      5s] cell  8 start : %%writefile src/emoji_semantics.py
+[      5s] cell  8 done  (0s)
+[      5s] cell 10 start : %%writefile src/preprocessing.py
+[      5s] cell 10 done  (0s)
+[      5s] cell 12 start : %%writefile src/features.py
+[      5s] cell 12 done  (0s)
+[      5s] cell 14 start : %%writefile src/data.py
+[      5s] cell 14 done  (0s)
+[      5s] cell 16 start : %%writefile src/evaluate.py
+[      5s] cell 16 done  (0s)
+[      5s] cell 18 start : %%writefile src/baselines.py
+[      5s] cell 18 done  (0s)
+[      5s] cell 20 start : %%writefile src/neural.py
+[      5s] cell 20 done  (0s)
+[      5s] cell 22 start : %%writefile src/transformer.py
+[      5s] cell 22 done  (0s)
+[      5s] cell 24 start : %%writefile src/predict.py
+[      5s] cell 24 done  (0s)
+[      5s] cell 25 start : import importlib, sys
+[      8s] cell 25 done  (3s)
+[      8s] cell 27 start : df, report = clean(raw[[TEXT, LABEL]])
+[      9s] cell 27 done  (0s)
+[      9s] cell 29 start : L = df[TEXT].str.len(); W = df[TEXT].str.split().str.len()
+[     14s] cell 29 done  (5s)
+[     14s] cell 31 start : for lab in (1, 0):
+[     14s] cell 31 done  (0s)
+[     14s] cell 33 start : prior = EmojiPrior().fit(train[TEXT], train[LABEL])
+[     18s] cell 33 done  (4s)
+[     18s] cell 35 start : from collections import Counter
+[     24s] cell 35 done  (6s)
+[     24s] cell 38 start : samples = ['یہ اسمبلی بغیر ڈیزل کے چل رہی ہے کیونکہ اِسکو گدھا \'\' چلا رہا ھے 🤣😂😂😂 ووٹ_کو
+[     24s] cell 38 done  (0s)
+[     24s] cell 40 start : X_tr, y_tr = train[TEXT].tolist(), train[LABEL].values

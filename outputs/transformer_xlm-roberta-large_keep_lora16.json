@@ -1,0 +1,70 @@
+{
+ "test": {
+  "model": "xlm-roberta-large (emoji keep, LoRA r=16)",
+  "accuracy": 0.8270814272644099,
+  "precision_0": 0.8682108626198083,
+  "recall_0": 0.8361538461538461,
+  "f1_0": 0.8518808777429467,
+  "precision_1": 0.771948608137045,
+  "recall_1": 0.8137697516930023,
+  "f1_1": 0.7923076923076923,
+  "macro_f1": 0.8220942850253194,
+  "support_0": 1300,
+  "support_1": 886,
+  "tn": 1087,
+  "fp": 213,
+  "fn": 165,
+  "tp": 721,
+  "threshold": 0.6799999999999997,
+  "val_macro_f1": 0.8281142216898887,
+  "epochs": 4,
+  "emoji_mode": "keep",
+  "model_name": "xlm-roberta-large",
+  "tag": "xlm-roberta-large_keep_lora16"
+ },
+ "history": [
+  {
+   "epoch": 1,
+   "train_loss": 0.510956308815048,
+   "val_macro_f1": 0.7733707784922257,
+   "val_acc": 0.7735590118938701,
+   "time_s": 389
+  },
+  {
+   "epoch": 2,
+   "train_loss": 0.4201167335740348,
+   "val_macro_f1": 0.8101488661814553,
+   "val_acc": 0.8119853613906679,
+   "time_s": 213
+  },
+  {
+   "epoch": 3,
+   "train_loss": 0.365328581527273,
+   "val_macro_f1": 0.8218189076490496,
+   "val_acc": 0.8257090576395243,
+   "time_s": 306
+  },
+  {
+   "epoch": 4,
+   "train_loss": 0.3177964298142995,
+   "val_macro_f1": 0.821721139118701,
+   "val_acc": 0.8247941445562672,
+   "time_s": 289
+  }
+ ],
+ "args": {
+  "model": "xlm-roberta-large",
+  "emoji_mode": "keep",
+  "epochs": 4,
+  "max_len": 80,
+  "bs": 8,
+  "lora": 16,
+  "lr": 0.0002,
+  "smooth": 0.0,
+  "accum": 2,
+  "no_freeze": false,
+  "fp32": false,
+  "tag": null
+ },
+ "elapsed_s": 1268
+}

@@ -435,8 +435,9 @@ Three ways to push beyond XLM-R-base, all chosen for Urdu-specific reasons:
 
 * **MuRIL** (`google/muril-base-cased`, Khanuja et al. 2021) — a BERT encoder pre-trained on 17 Indian languages *including Urdu
   and its Roman transliteration*, so it has seen far more Urdu and Roman-Urdu than XLM-R (where Urdu is <1 % of the data).
-* **mDeBERTa-v3-base** — disentangled attention + ELECTRA-style pre-training; the strongest base-size multilingual encoder on XNLI
-  (run in fp32: DeBERTa-v3 overflows under fp16/bf16 autocast).
+* **mDeBERTa-v3-base** — disentangled attention + ELECTRA-style pre-training; the strongest base-size multilingual encoder on XNLI.
+  In our environment (torch 2.14 / transformers 5.19, Windows) its loss became NaN within the first 200 steps under fp16, bf16
+  *and* fp32 with eager attention, so it is **excluded from the results** and left as an opt-in experiment.
 * **XLM-RoBERTa-large with LoRA** (Hu et al. 2022) — the 560M-parameter encoder would not fit a 6 GB GPU for full fine-tuning;
   rank-16 adapters on the attention/FFN projections train < 1 % of the weights and fit comfortably.
 * **Ensemble** — the probability outputs of the transformers, the TF-IDF LR and the hybrid TextCNN are averaged; weights and the
@@ -565,9 +566,11 @@ md(open(os.path.join(ROOT, "report", "error_commentary.md"), encoding="utf-8").r
 md("""
 ## 9. Conclusions
 
-* All three families land in the same band (≈ 0.79–0.81 Macro-F1 on test; TF-IDF LR 0.811, XLM-R 0.806–0.811, TextCNN 0.799);
-  the ceiling is set by **label noise**, **collection artefacts** (#طنز / تنقید) and **context dependence** (replies whose
-  sarcasm only exists relative to the tweet they answer), not by model capacity.
+* All base-size families land in the same band (≈ 0.79–0.81 Macro-F1 on test; TF-IDF LR 0.811, XLM-R base 0.806–0.811,
+  MuRIL 0.813, TextCNN 0.799); XLM-R-large with LoRA reaches 0.822 and the validation-selected **ensemble** 0.82–0.83.
+  The ceiling is set by **label noise**, **collection artefacts** (#طنز / تنقید) and **context dependence** (replies whose
+  sarcasm only exists relative to the tweet they answer), not by model capacity — which is why ensembling different
+  inductive biases helps more than any single bigger encoder.
 * **Emojis are meaningful but not sufficient**: as isolated features they move Macro-F1 by < 1 point for n-gram models and
   ~1 point for the CNN, yet they are decisive for short posts, and the emoji **meaning / category / polarity** representation
   lets the models generalise across the ~540 distinct emojis, 60 % of which are rare. For XLM-R, raw emoji, Urdu meaning and
@@ -591,7 +594,8 @@ assignment with AI assistance (Claude); design decisions, runs and analysis revi
 
 nb["cells"] = cells
 nb.metadata["kernelspec"] = {"name": "python3", "display_name": "Python 3", "language": "python"}
-nb.metadata["language_info"] = {"name": "python"}
+nb.metadata["language_info"] = {"name": "python", "file_extension": ".py", "mimetype": "text/x-python",
+                                "codemirror_mode": {"name": "ipython", "version": 3}, "pygments_lexer": "ipython3"}
 os.makedirs(os.path.dirname(NB_PATH), exist_ok=True)
 nbf.write(nb, NB_PATH)
 print("wrote", NB_PATH, "with", len(cells), "cells")
