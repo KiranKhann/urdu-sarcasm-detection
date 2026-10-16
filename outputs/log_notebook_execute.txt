@@ -43,3 +43,25 @@ C:\Users\kiran\AppData\Roaming\Python\Python314\site-packages\zmq\_future.py:718
 [     24s] cell 38 start : samples = ['یہ اسمبلی بغیر ڈیزل کے چل رہی ہے کیونکہ اِسکو گدھا \'\' چلا رہا ھے 🤣😂😂😂 ووٹ_کو
 [     24s] cell 38 done  (0s)
 [     24s] cell 40 start : X_tr, y_tr = train[TEXT].tolist(), train[LABEL].values
+[    372s] cell 40 done  (348s)
+[    372s] cell 42 start : classical = []
+[    391s] cell 42 done  (20s)
+[    391s] cell 44 start : abl = run_ablations(X_tr, y_tr, X_va, y_va, clf='lr', C=2.0)
+[    623s] cell 44 done  (232s)
+[    623s] cell 47 start : tf = top_features(lr_pipe, 25)
+[    623s] cell 47 done  (0s)
+[    623s] cell 49 start : import torch
+[   1019s] cell 49 done  (395s)
+[   1019s] cell 51 start : transformer = []
+[   2465s] cell 51 done  (1447s)
+[   2465s] cell 53 start : RUN_EXTRA_MODELS = RUN_TRANSFORMER
+[   2821s] cell 53 done  (356s)
+[   2821s] cell 55 start : import json
+[   2821s] cell 55 done  (0s)
+[   2821s] cell 57 start : all_results = classical + neural + transformer + extra
+[   2822s] cell 57 done  (0s)
+[   2822s] cell 60 start : explainer = xlmr_explainer if transformer else SarcasmExplainer(lambda texts: predict_prob
+[   2823s] cell 60 done  (1s)
+[   2823s] cell 62 start : ref_pred, ref_prob, ref_name = (xlmr_pred, xlmr_prob, 'XLM-R') if transformer else (lr_pre
+[   2824s] cell 62 done  (1s)
+finished in 2829s; errors: []

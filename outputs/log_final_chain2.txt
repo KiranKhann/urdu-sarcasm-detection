@@ -1,0 +1,11 @@
+wrote C:\Users\kiran\NLP Sarcasm Detection\notebooks\Urdu_Sarcasm_Detection.ipynb with 65 cells
+execute exit: 0
+[   2824s] cell 62 done  (1s)
+finished in 2829s; errors: []
+[NbConvertApp] Converting notebook C:\Users\kiran\NLP Sarcasm Detection\notebooks\Urdu_Sarcasm_Detection.ipynb to script
+[NbConvertApp] Writing 142675 bytes to C:\Users\kiran\NLP Sarcasm Detection\submission\Urdu_Sarcasm_Detection.py
+[NbConvertApp] Converting notebook C:\Users\kiran\NLP Sarcasm Detection\notebooks\Urdu_Sarcasm_Detection.ipynb to html
+[NbConvertApp] WARNING | Alternative text is missing on 4 image(s).
+[NbConvertApp] Writing 1259027 bytes to C:\Users\kiran\NLP Sarcasm Detection\submission\Urdu_Sarcasm_Detection.html
+submission/ written; C:\Users\kiran\NLP Sarcasm Detection\submission.zip 22.0 MB
+release assets: [('C:\\Users\\kiran\\NLP Sarcasm Detection\\outputs\\release\\model_muril-base-cased_keep.zip', 957), ('C:\\Users\\kiran\\NLP Sarcasm Detection\\outputs\\release\\model_xlm-roberta-large_keep_lora16.zip', 50)]
